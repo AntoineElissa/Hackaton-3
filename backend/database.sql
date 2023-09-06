@@ -1,141 +1,146 @@
--- MySQL dump 10.13  Distrib 8.0.32, for macos13 (arm64)
---
--- Host: localhost    Database: harryBdd
--- ------------------------------------------------------
--- Server version	8.0.32
+-- MySQL Workbench Forward Engineering
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8mb4 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
---
--- Current Database: `harryBdd`
---
+-- -----------------------------------------------------
+-- Schema hackathon3
+-- -----------------------------------------------------
 
-/*!40000 DROP DATABASE IF EXISTS `harryBdd`*/;
+-- -----------------------------------------------------
+-- Schema hackathon3
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `hackathon3` DEFAULT CHARACTER SET utf8 ;
+USE `hackathon3` ;
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `harryBdd` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+-- -----------------------------------------------------
+-- Table `hackathon3`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hackathon3`.`users` (
+  `id_user` INT NOT NULL AUTO_INCREMENT,
+  `user_name` VARCHAR(45) NULL,
+  `user_age` VARCHAR(45) NULL,
+  `user_coordx` VARCHAR(45) NULL,
+  `user_coordy` VARCHAR(45) NULL,
+  `user_email` VARCHAR(50) NULL,
+  `user_pwd` VARCHAR(255) NULL,
+  PRIMARY KEY (`id_user`))
+ENGINE = InnoDB;
 
-USE `harryBdd`;
 
---
--- Table structure for table `characters`
---
+-- -----------------------------------------------------
+-- Table `hackathon3`.`cours`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hackathon3`.`cours` (
+  `id_cours` INT NOT NULL AUTO_INCREMENT,
+  `cours_name` VARCHAR(45) NULL,
+  `cours_contenu` LONGTEXT NULL,
+  `cours_link` VARCHAR(255) NULL,
+  PRIMARY KEY (`id_cours`))
+ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `characters`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `characters` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(100) DEFAULT NULL,
-  `lastname` varchar(100) DEFAULT NULL,
-  `imgUrl` varchar(255) DEFAULT NULL,
-  `houses_id` int NOT NULL,
-  PRIMARY KEY (`id`,`houses_id`),
-  KEY `fk_characters_houses_idx` (`houses_id`),
-  CONSTRAINT `fk_characters_houses` FOREIGN KEY (`houses_id`) REFERENCES `houses` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `characters`
---
+-- -----------------------------------------------------
+-- Table `hackathon3`.`skills`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hackathon3`.`skills` (
+  `id_skill` INT NOT NULL AUTO_INCREMENT,
+  `skill_name` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_skill`))
+ENGINE = InnoDB;
 
-LOCK TABLES `characters` WRITE;
-/*!40000 ALTER TABLE `characters` DISABLE KEYS */;
-INSERT INTO `characters` VALUES (1,'Harry','Potter','https://static.actu.fr/uploads/2023/01/25512-230106120939397-0.jpg',1),(2,'Hermione','Granger','https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Hermione_Granger_poster.jpg/220px-Hermione_Granger_poster.jpg',1),(3,'Drago','Malefoy','https://wingardium-leviosa.com/wp-content/uploads/2018/03/draco-malfoy-produit-baguette-magique.jpg',2),(5,'Ron','weasley','https://upload.wikimedia.org/wikipedia/en/thumb/5/5e/Ron_Weasley_poster.jpg/220px-Ron_Weasley_poster.jpg',1);
-/*!40000 ALTER TABLE `characters` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `houses`
---
+-- -----------------------------------------------------
+-- Table `hackathon3`.`handicap`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hackathon3`.`handicap` (
+  `id_handicap` INT NOT NULL AUTO_INCREMENT,
+  `handicap_name` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_handicap`))
+ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `houses`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `houses` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `houseName` varchar(100) DEFAULT NULL,
-  `housePoint` int DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `houses`
---
+-- -----------------------------------------------------
+-- Table `hackathon3`.`users_has_handicap`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hackathon3`.`users_has_handicap` (
+  `users_id_user` INT NOT NULL,
+  `handicap_id_handicap` INT NOT NULL,
+  PRIMARY KEY (`users_id_user`, `handicap_id_handicap`),
+  INDEX `fk_users_has_handicap_handicap1_idx` (`handicap_id_handicap` ASC) VISIBLE,
+  INDEX `fk_users_has_handicap_users1_idx` (`users_id_user` ASC) VISIBLE,
+  CONSTRAINT `fk_users_has_handicap_users1`
+    FOREIGN KEY (`users_id_user`)
+    REFERENCES `hackathon3`.`users` (`id_user`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_has_handicap_handicap1`
+    FOREIGN KEY (`handicap_id_handicap`)
+    REFERENCES `hackathon3`.`handicap` (`id_handicap`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
-LOCK TABLES `houses` WRITE;
-/*!40000 ALTER TABLE `houses` DISABLE KEYS */;
-INSERT INTO `houses` VALUES (1,'Grifondor',100),(2,'Serpentard',100);
-/*!40000 ALTER TABLE `houses` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `spells`
---
+-- -----------------------------------------------------
+-- Table `hackathon3`.`users_has_skills`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hackathon3`.`users_has_skills` (
+  `users_id_user` INT NOT NULL,
+  `skills_id_skill` INT NOT NULL,
+  PRIMARY KEY (`users_id_user`, `skills_id_skill`),
+  INDEX `fk_users_has_skills_skills1_idx` (`skills_id_skill` ASC) VISIBLE,
+  INDEX `fk_users_has_skills_users1_idx` (`users_id_user` ASC) VISIBLE,
+  CONSTRAINT `fk_users_has_skills_users1`
+    FOREIGN KEY (`users_id_user`)
+    REFERENCES `hackathon3`.`users` (`id_user`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_has_skills_skills1`
+    FOREIGN KEY (`skills_id_skill`)
+    REFERENCES `hackathon3`.`skills` (`id_skill`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `spells`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `spells` (
-  `id` int NOT NULL AUTO_INCREMENT,
-  `spellName` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `spells`
---
+-- -----------------------------------------------------
+-- Table `hackathon3`.`users_has_cours`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hackathon3`.`users_has_cours` (
+  `users_id_user` INT NOT NULL,
+  `cours_id_cours` INT NOT NULL,
+  PRIMARY KEY (`users_id_user`, `cours_id_cours`),
+  INDEX `fk_users_has_cours_cours1_idx` (`cours_id_cours` ASC) VISIBLE,
+  INDEX `fk_users_has_cours_users1_idx` (`users_id_user` ASC) VISIBLE,
+  CONSTRAINT `fk_users_has_cours_users1`
+    FOREIGN KEY (`users_id_user`)
+    REFERENCES `hackathon3`.`users` (`id_user`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_users_has_cours_cours1`
+    FOREIGN KEY (`cours_id_cours`)
+    REFERENCES `hackathon3`.`cours` (`id_cours`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
 
-LOCK TABLES `spells` WRITE;
-/*!40000 ALTER TABLE `spells` DISABLE KEYS */;
-/*!40000 ALTER TABLE `spells` ENABLE KEYS */;
-UNLOCK TABLES;
 
---
--- Table structure for table `spells_has_characters`
---
+-- -----------------------------------------------------
+-- Table `hackathon3`.`poi`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hackathon3`.`poi` (
+  `id_poi` INT NOT NULL AUTO_INCREMENT,
+  `poi_name` VARCHAR(45) NULL,
+  `poi_type` VARCHAR(45) NULL,
+  `poi_desc` VARCHAR(45) NULL,
+  `poi_coordx` VARCHAR(45) NULL,
+  `poi_coordy` VARCHAR(45) NULL,
+  PRIMARY KEY (`id_poi`))
+ENGINE = InnoDB;
 
-DROP TABLE IF EXISTS `spells_has_characters`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `spells_has_characters` (
-  `spells_id` int NOT NULL,
-  `characters_id` int NOT NULL,
-  PRIMARY KEY (`spells_id`,`characters_id`),
-  KEY `fk_spells_has_characters_characters1_idx` (`characters_id`),
-  KEY `fk_spells_has_characters_spells1_idx` (`spells_id`),
-  CONSTRAINT `fk_spells_has_characters_characters1` FOREIGN KEY (`characters_id`) REFERENCES `characters` (`id`),
-  CONSTRAINT `fk_spells_has_characters_spells1` FOREIGN KEY (`spells_id`) REFERENCES `spells` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `spells_has_characters`
---
-
-LOCK TABLES `spells_has_characters` WRITE;
-/*!40000 ALTER TABLE `spells_has_characters` DISABLE KEYS */;
-/*!40000 ALTER TABLE `spells_has_characters` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2023-07-12  2:40:41
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
