@@ -1,37 +1,33 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 
 import "./Input.scss"
 import imgSend from "../../../assets/images/send.png"
-import axios from "axios"
 
 function InputComponent({ addPrompt }) {
-  const [value, setValue] = useState("")
-  const [send, setSend] = useState(false)
-  // const [requestSuccess, setRequestSuccess] = useState(false)
+  const [value, setValue] = useState(null)
 
-  useEffect(() => {
-    if (send) {
-      axios
-        .post("http://localhost:4242/openAPI", { value })
-        .then((response) => {
-          if (response.status === 200) {
-            // setRequestSuccess(true)
-            addPrompt("send", value)
-            addPrompt("receive", response.data.message)
-          }
-        })
-        .catch((error) => {
-          console.error(error)
-        })
-        .finally(() => {
-          setValue("")
-          setSend(false)
-        })
+  const getMessages = async () => {
+    addPrompt("send", value)
+
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
+        message: value,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     }
-  }, [send, value, addPrompt])
 
-  const handleChange = (e) => {
-    setValue(e.target.value)
+    try {
+      const response = await fetch("http://localhost:4242/openAPI", options)
+      const data = await response.json()
+      addPrompt("receive", data.choices[0].message.content)
+    } catch (error) {
+      console.error(error)
+    } finally {
+      setValue(null)
+    }
   }
 
   return (
@@ -41,10 +37,10 @@ function InputComponent({ addPrompt }) {
         id="inputField"
         placeholder="Send a message"
         value={value}
-        onChange={handleChange}
+        onChange={(e) => setValue(e.target.value)}
         className="inputComponent"
       />
-      <button className="btnSend" onClick={() => setSend(true)}>
+      <button className="btnSend" onClick={getMessages}>
         <img src={imgSend} alt="img-send" />
       </button>
     </>

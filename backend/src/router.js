@@ -39,18 +39,31 @@ router.post("/handicap", handicapControllers.add)
 router.put("/handicap/:id", handicapControllers.edit)
 router.delete("/handicap/:id", handicapControllers.destroy)
 
-router.post("/openAPI", function (req, res) {
-  // Traitez les données de la requête
-  //   const data = req.body
+router.post("/openAPI", async (req, res) => {
+  //   console.log(req.body.message)
+  const options = {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.API_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      model: "gpt-3.5-turbo",
+      messages: [{ role: "user", content: req.body.message }],
+      max_tokens: 100,
+    }),
+  }
 
-  //   console.log(data)
-
-  // Effectuez des opérations de base de données, si nécessaire
-  // Exemple : Enregistrez les données dans une base de données
-  // database.saveData(data);
-
-  // Renvoyez une réponse au client
-  res.status(200).json({ message: "Données reçues avec succès !" })
+  try {
+    const response = await fetch(
+      "https://api.openai.com/v1/chat/completions",
+      options
+    )
+    const data = await response.json()
+    res.send(data)
+  } catch (error) {
+    console.error(error)
+  }
 })
 
 module.exports = router
