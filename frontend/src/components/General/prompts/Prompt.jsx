@@ -1,17 +1,17 @@
 import "./Prompt.scss"
 import { styled } from "styled-components"
 
-function Prompt({ type = "send", data, pic }) {
+function Prompt({ type = "send", data, pic, time }) {
   return (
     <>
       <StyledImg type={type}>
         {pic && <img src={pic} alt="img-profil" />}
       </StyledImg>
       <PromptStyled type={type}>
-        <PromptBulle type={type} className="prompt__bulle">
-          {data.text}
+        <PromptBulle type={type} data={data} className="prompt__bulle">
+          {data}
 
-          <p> {data.time} </p>
+          <p> {time} </p>
         </PromptBulle>
       </PromptStyled>
     </>

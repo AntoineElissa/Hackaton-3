@@ -7,6 +7,7 @@ const handicapControllers = require("./controllers/HandicapControllers")
 const skillsControllers = require("./controllers/SkillsControllers")
 const coursControllers = require("./controllers/CoursControllers")
 const poiControllers = require("./controllers/PoiControllers")
+// const gptController = require("./controllers/GptController")
 
 router.get("/cours", coursControllers.browse)
 router.get("/cours/:id", coursControllers.read)
@@ -37,5 +38,19 @@ router.get("/handicap/:id", handicapControllers.read)
 router.post("/handicap", handicapControllers.add)
 router.put("/handicap/:id", handicapControllers.edit)
 router.delete("/handicap/:id", handicapControllers.destroy)
+
+router.post("/openAPI", function (req, res) {
+  // Traitez les données de la requête
+  //   const data = req.body
+
+  //   console.log(data)
+
+  // Effectuez des opérations de base de données, si nécessaire
+  // Exemple : Enregistrez les données dans une base de données
+  // database.saveData(data);
+
+  // Renvoyez une réponse au client
+  res.status(200).json({ message: "Données reçues avec succès !" })
+})
 
 module.exports = router

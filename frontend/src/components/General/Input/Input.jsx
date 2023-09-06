@@ -1,37 +1,54 @@
-import { Component } from "react"
+import { useState, useEffect } from "react"
+
 import "./Input.scss"
 import imgSend from "../../../assets/images/send.png"
+import axios from "axios"
 
-class InputComponent extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      inputValue: "",
+function InputComponent({ addPrompt }) {
+  const [value, setValue] = useState("")
+  const [send, setSend] = useState(false)
+  // const [requestSuccess, setRequestSuccess] = useState(false)
+
+  useEffect(() => {
+    if (send) {
+      axios
+        .post("http://localhost:4242/openAPI", { value })
+        .then((response) => {
+          if (response.status === 200) {
+            // setRequestSuccess(true)
+            addPrompt("send", value)
+            addPrompt("receive", response.data.message)
+          }
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+        .finally(() => {
+          setValue("")
+          setSend(false)
+        })
     }
+  }, [send, value, addPrompt])
+
+  const handleChange = (e) => {
+    setValue(e.target.value)
   }
 
-  handleChange = (e) => {
-    this.setState({ inputValue: e.target.value })
-  }
-
-  render() {
-    return (
-      <>
-        <input
-          type="text"
-          id="inputField"
-          placeholder="Send a message"
-          value={this.state.inputValue}
-          onChange={this.handleChange}
-          className="inputComponent"
-        />
-        <button className="btnSend">
-          <img src={imgSend} alt="img-send" />
-        </button>
-        {/* <p>Vous avez entré : {this.state.inputValue}</p> */}
-      </>
-    )
-  }
+  return (
+    <>
+      <input
+        type="text"
+        id="inputField"
+        placeholder="Send a message"
+        value={value}
+        onChange={handleChange}
+        className="inputComponent"
+      />
+      <button className="btnSend" onClick={() => setSend(true)}>
+        <img src={imgSend} alt="img-send" />
+      </button>
+    </>
+  )
 }
 
 export default InputComponent
