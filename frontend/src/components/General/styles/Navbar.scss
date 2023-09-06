@@ -22,23 +22,15 @@
     margin: 0;
     padding: 0;
 
-    li {
-      list-style: none;
-      display: block;
-    }
+        li{
+            list-style: none;
+        }
+        
+        a{
+            color:white;
+            text-decoration: none;
+            
+        }
 
-    a {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      color: white;
-      text-decoration: none;
     }
-
-    img {
-      display: grid;
-      width: fit-content;
-      align-items: center;
-    }
-  }
 }

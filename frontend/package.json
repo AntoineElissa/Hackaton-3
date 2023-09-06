@@ -15,6 +15,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0",
     "sass": "^1.66.1",
+    "socket.io-client": "^4.7.2",
+    "socket.io-frontend": "^0.0.2",
     "styled-components": "^6.0.7",
     "vite": "^4.0.4"
   },
