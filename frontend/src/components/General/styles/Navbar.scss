@@ -1,33 +1,43 @@
 @import "../../../services/variables.scss";
 
 .navTemporaire {
-    width:100%;
-    height:100%;
-    display:flex;
-    align-items:center;
+  background-color: #4f4e4e;
+  border-radius: 10px;
+  width: 97%;
+  height: 85%;
+  margin-top: 7px;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
 
-    
+  ul {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 
-    ul{
-        height:100%;
-        display:flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items:center;
-       
-        width:100%;
-        margin:0;
-        padding:0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 
-        li{
-            list-style: none;
-        }
-        
-        a{
-            color:white;
-            text-decoration: none;
-            
-        }
-
+    li {
+      list-style: none;
+      display: block;
     }
+
+    a {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      text-decoration: none;
+    }
+
+    img {
+      display: grid;
+      width: fit-content;
+      align-items: center;
+    }
+  }
 }
