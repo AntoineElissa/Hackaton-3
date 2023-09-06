@@ -19,6 +19,11 @@ html, body{
     gap:1.1rem;
     font-family: $font-jadli;
     color: white;
+
+    @media(min-width : 700px){
+        padding:0;
+        gap:10vh;
+    }
 }
 
 
@@ -29,6 +34,7 @@ html, body{
 .wrap-header{
     height:10%;
     width:100%;
+    box-sizing: border-box;
     // background-color: white;
 }
 
@@ -36,7 +42,14 @@ html, body{
 /* CONTENT */
 .wrap-content{
     height:80% ;
-    background-color: grey;
+    background-color: $backgroundColor;
+
+    @media(min-width : 700px){
+        margin:auto;
+        width:100%;
+        aspect-ratio: 350/400;
+        max-width:700px;
+    }
 }
 
 
@@ -44,4 +57,5 @@ html, body{
 .wrap-nav{
     height:10%;
     background-color: purple;
+    max-height:70px;
 }
