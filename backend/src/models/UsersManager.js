@@ -4,6 +4,7 @@ class UsersManager extends AbstractManager {
   constructor() {
     super({ table: "users" })
   }
+  // Coucou
 
   insert(users) {
     return this.database.query(
