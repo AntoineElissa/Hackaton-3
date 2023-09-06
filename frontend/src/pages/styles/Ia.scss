@@ -5,8 +5,13 @@
     flex-direction: column;
     justify-content: space-between ;
     height:100%;
+    padding: 0 1rem 0 1rem;
+    box-sizing: border-box;
+    gap:10px;
+    // background-color: grey;
 
     &__title{
+        height:5%;
         box-sizing: border-box;
         margin:1rem;
         display:flex;
@@ -15,23 +20,23 @@
     }
 
     &__discuss{
-       
-        background-color: yellow;
+       height:85%;
+       overflow: scroll;
+        // background-color: yellow;
     }
 
     &__message{
+        height:10%;
         display:flex;
         width:100%;
         box-sizing: border-box;
         align-items: center;
         justify-content: center;
         gap:1rem;
-        padding: 1rem;
+        // padding: 1rem;
         // background-color: yellow;
 
-        img{
-            height:30px;
-        }
+  
 
     }
 }

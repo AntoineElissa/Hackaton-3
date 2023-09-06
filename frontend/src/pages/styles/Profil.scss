@@ -9,6 +9,8 @@
     box-sizing: border-box;
     padding: 1rem;
     justify-content: space-between;
+    border-radius: 8px;
+    background-color: rgba(128, 128, 128, 0.169);
 
     &__title{
         height: $height-title-sections;
@@ -20,26 +22,4 @@
         background-color: white;
         position:relative;
     }
-
-
-
-    // &__description{
-    //     height: 70%;
-    //     background-color: white;
-    //     position:relative;
-
-    //     .profil-pic{
-    //         position: absolute;
-    //         top:-20%;
-    //         left: 50%;
-    //         transform: translateX(-50%);
-    //         height: 40%;
-    //         aspect-ratio: 1/1;
-    //         width:auto;
-    //         border-radius: 50%;
-    //         background-color: red;
-    //     }
-
-
-    // }
 }
