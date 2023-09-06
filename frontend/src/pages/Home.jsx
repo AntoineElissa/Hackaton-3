@@ -1,23 +1,19 @@
-import { useState, useEffect } from "react"
-import axios from "axios"
+import { Canvas } from "@react-three/fiber"
+import Blob from "../components/Blob/Blob"
 
 export default function Home() {
-  const [characters, setCharacters] = useState([])
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:4242/characters")
-      .then((res) => setCharacters(res.data))
-  }, [])
-
   return (
-    <header className="App-header">
-      {characters.map((character) => (
-        <>
-          <img src={character.imgUrl} alt={character.name} />
-          <p>{character.firstname}</p>
-        </>
-      ))}
-    </header>
+    <>
+      <Canvas
+        className="canvas"
+        style={{ width: "100vw", height: "100vh", margin: "auto" }}
+        width={window.innerWidth}
+        height={window.innerHeight}
+        gl={{ antialias: true }}
+        camera={{ position: [0.0, 0.0, 8.0] }}
+      >
+        <Blob />
+      </Canvas>
+    </>
   )
 }
