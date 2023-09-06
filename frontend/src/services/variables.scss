@@ -5,7 +5,7 @@ $height-title-sections : 5%;
 
 
 /* =================   COLORS  ===================*/
-
+$backgroundColor : #4F4E4E;
 
 /* ===============  FONTS FAMILY =================*/
 $font-knewave : "Knewave", cursive;
@@ -24,6 +24,8 @@ $font-jadli: "Jaldi", sans-serif;
   
   h2 {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
+    margin: 0;
+    padding:0;
   }
   
   h3 {
@@ -45,3 +47,14 @@ $font-jadli: "Jaldi", sans-serif;
   p {
     font-size: clamp(1rem, 2vw, 1.4rem);
   }
+
+  span{
+    font-size: clamp(0.8rem, 1vw, 1.2rem);
+  }
+
+  h1, h2, h3, h4, h5, h6, p{
+    margin: 0;
+    padding:0;
+  }
+
+  

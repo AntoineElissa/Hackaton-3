@@ -10,7 +10,7 @@ body {
 
 #root {
   box-sizing: border-box;
-  padding: 1rem;
+  // padding: 1rem;
   height: 100vh;
   overflow: hidden;
   display: flex;
@@ -18,6 +18,11 @@ body {
   gap: 1.1rem;
   font-family: $font-jadli;
   color: white;
+
+  @media (min-width: 700px) {
+    padding: 0;
+    gap: 10vh;
+  }
 }
 
 /* ============= CONTENU =========== */
@@ -26,13 +31,22 @@ body {
 .wrap-header {
   height: 10%;
   width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
   // background-color: white;
 }
 
 /* CONTENT */
 .wrap-content {
   height: 80%;
-  background-color: grey;
+  background-color: $backgroundColor;
+
+  @media (min-width: 700px) {
+    margin: auto;
+    width: 100%;
+    aspect-ratio: 350/400;
+    max-width: 700px;
+  }
 }
 
 /* NAV */
