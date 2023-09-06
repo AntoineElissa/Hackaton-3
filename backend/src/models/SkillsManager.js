@@ -1,26 +1,21 @@
 const AbstractManager = require("./AbstractManager")
 
-class UsersManager extends AbstractManager {
-    constructor() {
-      super({ table: "skills" })
-    }
+class SkillsManager extends AbstractManager {
+  constructor() {
+    super({ table: "skills" })
+  }
 
-inster(skills) {
+  insert(skills) {
     return this.database.query(
-        `insert into ${this.table} (skills_name) values (?)`,
-        [
-            skills.skills_name,
-        ]
+      `insert into ${this.table} (skills_name) values (?)`,
+      [skills.skills_name]
     )
-}
+  }
 
-update(skills) {
-    return this.database.query(
-        `update ${this.table} set skills_name = ?`,
-        [
-            skills.skills_name,
-        ]
-
-    )
+  update(skills) {
+    return this.database.query(`update ${this.table} set skills_name = ?`, [
+      skills.skills_name,
+    ])
+  }
 }
-}
+module.exports = SkillsManager

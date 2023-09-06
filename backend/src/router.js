@@ -2,11 +2,11 @@ const express = require("express")
 
 const router = express.Router()
 
-const usersControllers = require ("./controllers/UsersControllers")
-const handicapControllers = require ("./controllers/HandicapControllers")
-const skillsControllers = require ("./controllers/SkillsControllers")
-const coursControllers = require ("./controllers/CoursControllers")
-const poiControllers = require ("./controllers/PoiControllers")
+const usersControllers = require("./controllers/UsersControllers")
+const handicapControllers = require("./controllers/HandicapControllers")
+const skillsControllers = require("./controllers/SkillsControllers")
+const coursControllers = require("./controllers/CoursControllers")
+const poiControllers = require("./controllers/PoiControllers")
 
 router.get("/cours", coursControllers.browse)
 router.get("/cours/:id", coursControllers.read)

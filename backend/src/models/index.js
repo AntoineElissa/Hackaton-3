@@ -30,13 +30,10 @@ pool.getConnection().catch(() => {
 const models = {}
 
 const CoursManager = require("./CoursManager")
-const HandicapManager = require("./HandicapManager")
+const HandicapManager = require("./HandicapsManager")
 const SkillsManager = require("./SkillsManager")
 const PoiManager = require("./PoiManager")
 const UsersManager = require("./UsersManager")
-
-models.item = new ItemManager()
-models.item.setDatabase(pool)
 
 models.cours = new CoursManager()
 models.cours.setDatabase(pool)
@@ -52,7 +49,6 @@ models.skills.setDatabase(pool)
 
 models.users = new UsersManager()
 models.users.setDatabase(pool)
-
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
