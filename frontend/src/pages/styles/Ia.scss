@@ -1,1 +1,26 @@
-@import "../../services/variables.scss"
+@import "../../services/variables.scss";
+
+.ia{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    height:100%;
+
+    &__title{
+        box-sizing: border-box;
+        margin:1rem;
+        display:flex;
+        justify-content: center;
+ 
+    }
+
+    &__discuss{
+       
+        background-color: yellow;
+    }
+
+    &__message{
+        background-color: yellow;
+
+    }
+}
