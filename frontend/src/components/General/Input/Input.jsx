@@ -1,5 +1,6 @@
 import { Component } from "react"
 import "./Input.scss"
+import imgSend from "../../../assets/images/send.png"
 
 class InputComponent extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class InputComponent extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <input
           type="text"
           id="inputField"
@@ -24,8 +25,11 @@ class InputComponent extends Component {
           onChange={this.handleChange}
           className="inputComponent"
         />
+        <button className="btnSend">
+          <img src={imgSend} alt="img-send" />
+        </button>
         {/* <p>Vous avez entré : {this.state.inputValue}</p> */}
-      </div>
+      </>
     )
   }
 }
