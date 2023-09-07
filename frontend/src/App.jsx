@@ -18,8 +18,6 @@ import Resources from "./pages/Resources"
 import Zones from "./pages/Zones"
 import Navbar from "./components/General/Navbar"
 
-// import ChatbotApp from "./pages/Ia2"
-
 function App() {
   return (
     <>
