@@ -1,0 +1,24 @@
+@import "../services/variables.scss";
+
+.radarMapContainer {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  .mapContainer {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    .mapTileLayer {
+
+    }
+
+    .mapMarker {
+
+      .mapPopup {
+        
+      }
+    }
+  }
+}
