@@ -202,6 +202,7 @@ export default function Map() {
           ))}
         </div>
       </MapContainer>
+      <div className="categoryList">Liste</div>
     </>
   )
 }
