@@ -16,9 +16,9 @@ const widgetData = [
   {
     id: 2,
     widgetColor: "#CCEBC5",
-    widgetName: "Survival Ressources",
+    widgetName: "Survival Advice",
     widgetImg: survivalressources,
-    linkedPage: "/ressources",
+    linkedPage: "/resources",
   },
   {
     id: 3,

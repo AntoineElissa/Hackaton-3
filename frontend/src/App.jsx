@@ -10,7 +10,7 @@ import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home"
 import Header from "./components/General/Header"
 import Profil from "./pages/Profil"
-import Radar from "./pages/Radar"
+// import Radar from "./pages/Radar"
 import Alert from "./pages/Alert"
 import Ia from "./pages/Ia"
 import Discuss from "./pages/Discuss"
@@ -18,6 +18,7 @@ import Meet from "./pages/Meet"
 import Resources from "./pages/Resources"
 import Zones from "./pages/Zones"
 import Navbar from "./components/General/Navbar"
+import RadarTest from "./pages/RadarTest"
 
 function App() {
   return (
@@ -31,7 +32,8 @@ function App() {
           <Route path="/" element={<Log />} />
           <Route path="/home" element={<Home />} />
           <Route path="/profil" element={<Profil />} />
-          <Route path="/radar" element={<Radar />} />
+          {/* <Route path="/radar" element={<Radar />} /> */}
+          <Route path="/radar" element={<RadarTest />} />
           <Route path="/alert" element={<Alert />} />
           <Route path="/ia" element={<Ia />} />
           <Route path="/discuss" element={<Discuss />} />

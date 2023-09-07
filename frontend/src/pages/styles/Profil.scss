@@ -12,8 +12,21 @@
   background-color: rgba(128, 128, 128, 0.169);
 
   &__title {
-    height: $height-title-sections;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     // background-color: white;
+
+    button {
+      background: transparent;
+      border: none;
+      height: 50%;
+
+      img {
+        height: 100%;
+      }
+    }
   }
 
   &__description {
