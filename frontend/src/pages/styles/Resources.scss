@@ -1,1 +1,18 @@
 @import "../../services/variables.scss";
+
+ .resourcesadvice {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      height: 100%;
+      box-sizing: border-box;
+      padding: 0.8rem;
+      border-radius: 8px;
+      background-color: #CCEBC5;
+      overflow-y: auto;
+
+  .resourcetitle {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+}

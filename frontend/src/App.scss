@@ -1,11 +1,8 @@
 @import "./services/variables.scss";
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
-  background-color: #222426;
-  height: 100%;
 }
 
 #root {
@@ -18,6 +15,7 @@ body {
   gap: 0.5rem;
   font-family: $font-jadli;
   color: white;
+  background-color: #222426;
 
   @media (min-width: 700px) {
     padding: 0;
