@@ -9,7 +9,6 @@
   margin-left: 9px;
   display: flex;
   align-items: center;
-  max-width: 700px;
 
   ul {
     height: 100%;
@@ -24,11 +23,21 @@
 
     li {
       list-style: none;
+      display: block;
     }
 
     a {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
       color: white;
       text-decoration: none;
+    }
+
+    img {
+      display: grid;
+      width: fit-content;
+      align-items: center;
     }
   }
 }
