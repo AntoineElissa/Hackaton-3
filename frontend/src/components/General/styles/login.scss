@@ -1,0 +1,113 @@
+.loginGlobal {
+  width: 100%;
+  height: 100%;
+  background-color: #4f4e4e;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 9px;
+}
+
+.username {
+  width: 250px;
+  margin-bottom: 35px;
+  height: 30px;
+  font-family: "jaldi";
+  font-size: 25px;
+}
+
+.username input {
+  font-size: 15px;
+}
+
+.password {
+  width: 250px;
+  margin-bottom: 35px;
+  height: 30px;
+  font-size: 30px;
+}
+
+.logButton {
+  width: 260px;
+  font-family: "jaldi";
+}
+
+.or {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.or hr {
+  width: 120px;
+}
+
+.or h1 {
+  font-family: "jaldi";
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 20px;
+}
+
+.tpButtons {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.tpButtons button {
+  margin: 10px;
+}
+
+.google {
+  font-weight: bold;
+  font-family: "jaldi";
+  display: flex;
+}
+.google img {
+  width: 20px;
+}
+
+.apple {
+  font-family: "jaldi";
+  display: flex;
+  font-weight: bold;
+}
+
+.apple img {
+  width: 20px;
+}
+
+.forgot {
+  display: flex;
+  width: 260px;
+}
+
+.sepaToForgot {
+  width: 90%;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.forgot button {
+  font-family: "jaldi";
+  margin: 10px;
+  width: 135px;
+}
+
+.forgot {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.signIn {
+  width: 100px;
+}
+
+.loginGlobal input {
+  border-radius: 7px;
+}
