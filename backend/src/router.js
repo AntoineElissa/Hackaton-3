@@ -41,7 +41,7 @@ router.put("/handicap/:id", handicapControllers.edit)
 router.delete("/handicap/:id", handicapControllers.destroy)
 
 router.post("/openAPI", async (req, res) => {
-  console.log(" requete entrante : ", req.body.message)
+  // console.log(" requete entrante : ", req.body.message)
   const options = {
     method: "POST",
     headers: {

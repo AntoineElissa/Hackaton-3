@@ -26,7 +26,7 @@ function Ia() {
   }
 
   const getMessages = async () => {
-    console.log(" Envoies à chatGPT avec valeurs = ", value)
+    // console.log(" Envoies à chatGPT avec valeurs = ", value)
     addPrompt("send", value)
 
     const options = {
@@ -43,7 +43,7 @@ function Ia() {
     try {
       const response = await fetch("http://localhost:4242/openAPI", options)
       const data = await response.json()
-      console.log("data retour : ", data)
+      // console.log("data retour : ", data)
       addPrompt("receive", data.choices[0].message.content)
     } catch (error) {
       console.error(error)
@@ -53,11 +53,11 @@ function Ia() {
   }
 
   useEffect(() => {
-    console.log(value)
+    // console.log(value)
   }, [value])
 
   useEffect(() => {
-    console.log("creation du prompt : ", prompts)
+    // console.log("creation du prompt : ", prompts)
   }, [prompts])
 
   return (
