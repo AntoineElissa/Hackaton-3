@@ -18,8 +18,6 @@ import woodImg from "../assets/images/radarImg/wood.png"
 import zombieImg from "../assets/images/radarImg/zombie.png"
 
 export default function Map() {
-  // const [selectedOptions, setSelectedOptions] = useState("all")
-
   // ------ To get the user's position -----------
   const [userLocation, setUserLocation] = useState(null)
   const mapRef = useRef(null)
@@ -150,8 +148,21 @@ export default function Map() {
     },
   ]
 
+  // ---------- To filter the POI -------------
+  const [selectedOptions, setSelectedOptions] = useState([])
+  const handleOptionChange = (option) => {
+    if (selectedOptions.includes(option)) {
+      setSelectedOptions(selectedOptions.filter((item) => item !== option))
+    } else {
+      setSelectedOptions([...selectedOptions, option])
+    }
+  }
+  const filteredIcons = iconTab.filter((poi) =>
+    selectedOptions.includes(poi.name)
+  )
+
   return (
-    <>
+    <div className="mapPage">
       <section className="radarTitle">
         <h3 className="mapTitle">Radar Zone</h3>
         <img className="mapLogoImg" src={mapLogo} alt="logo map" />
@@ -163,46 +174,63 @@ export default function Map() {
           Search
         </button>
       </section>
-      <MapContainer
-        center={
-          userLocation
-            ? [userLocation.latitude, userLocation.longitude]
-            : [50, 10]
-        }
-        zoom={7}
-        scrollWheelZoom={true}
-        className="map-container"
-        ref={mapRef}
-      >
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          className="tileLayer"
-        />
-        <Marker
-          position={
+      <div className="mapMain">
+        <MapContainer
+          center={
             userLocation
               ? [userLocation.latitude, userLocation.longitude]
               : [50, 10]
           }
+          zoom={7}
+          scrollWheelZoom={true}
+          className="map-container"
           ref={mapRef}
-        ></Marker>
+        >
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            className="tileLayer"
+          />
+          <Marker
+            position={
+              userLocation
+                ? [userLocation.latitude, userLocation.longitude]
+                : [50, 10]
+            }
+            ref={mapRef}
+          ></Marker>
 
-        <div className="mapFilter">
+          <div className="mapFilter">
+            {filteredIcons.map((poi) => (
+              <Marker
+                position={[poi.coordx, poi.coordy]}
+                icon={L.icon({
+                  iconUrl: poi.imgUrl,
+                  iconSize: [28, 28],
+                  iconAnchor: [14, 28],
+                })}
+                key={poi.id}
+              ></Marker>
+            ))}
+          </div>
+        </MapContainer>
+      </div>
+      <div className="categoryList">
+        <h3 className="filterTitle">Filters</h3>
+        <section className="filteredPoi">
           {iconTab.map((poi) => (
-            <Marker
-              position={[poi.coordx, poi.coordy]}
-              icon={L.icon({
-                iconUrl: poi.imgUrl,
-                iconSize: [28, 28],
-                iconAnchor: [14, 28],
-              })}
-              key={poi.id}
-            ></Marker>
+            <label key={poi.id}>
+              <input
+                type="checkbox"
+                value={poi.name}
+                checked={selectedOptions.includes(poi.name)}
+                onChange={() => handleOptionChange(poi.name)}
+              />
+              {poi.name}
+            </label>
           ))}
-        </div>
-      </MapContainer>
-      <div className="categoryList">Liste</div>
-    </>
+        </section>
+      </div>
+    </div>
   )
 }
