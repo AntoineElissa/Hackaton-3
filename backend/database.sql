@@ -14,8 +14,44 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema hackathon3
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `hackathon3` DEFAULT CHARACTER SET utf8mb3 ;
+CREATE SCHEMA IF NOT EXISTS `hackathon3` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `hackathon3` ;
+
+-- -----------------------------------------------------
+-- Table `hackathon3`.`users`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hackathon3`.`users` (
+  `id_user` INT NOT NULL AUTO_INCREMENT,
+  `user_name` VARCHAR(45) NULL DEFAULT NULL,
+  `user_age` VARCHAR(45) NULL DEFAULT NULL,
+  `user_coordx` VARCHAR(45) NULL DEFAULT NULL,
+  `user_coordy` VARCHAR(45) NULL DEFAULT NULL,
+  `user_email` VARCHAR(50) NULL DEFAULT NULL,
+  `user_pwd` VARCHAR(255) NULL DEFAULT NULL,
+  `user_profil_picture` VARCHAR(255) NULL DEFAULT NULL,
+  PRIMARY KEY (`id_user`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb3;
+
+
+-- -----------------------------------------------------
+-- Table `hackathon3`.`chat`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `hackathon3`.`chat` (
+  `chat_id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL,
+  `message_emis` TEXT NOT NULL,
+  `message_recu` TEXT NOT NULL,
+  `heure_reception` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`chat_id`),
+  INDEX `user_id` (`user_id` ASC) VISIBLE,
+  CONSTRAINT `chat_ibfk_1`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `hackathon3`.`users` (`id_user`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
 
 -- -----------------------------------------------------
 -- Table `hackathon3`.`cours`
@@ -63,23 +99,6 @@ CREATE TABLE IF NOT EXISTS `hackathon3`.`skills` (
   `id_skill` INT NOT NULL AUTO_INCREMENT,
   `skill_name` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`id_skill`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb3;
-
-
--- -----------------------------------------------------
--- Table `hackathon3`.`users`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `hackathon3`.`users` (
-  `id_user` INT NOT NULL AUTO_INCREMENT,
-  `user_name` VARCHAR(45) NULL DEFAULT NULL,
-  `user_age` VARCHAR(45) NULL DEFAULT NULL,
-  `user_coordx` VARCHAR(45) NULL DEFAULT NULL,
-  `user_coordy` VARCHAR(45) NULL DEFAULT NULL,
-  `user_email` VARCHAR(50) NULL DEFAULT NULL,
-  `user_pwd` VARCHAR(255) NULL DEFAULT NULL,
-  `user_profil_picture` VARCHAR(255) NULL DEFAULT NULL,
-  PRIMARY KEY (`id_user`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
