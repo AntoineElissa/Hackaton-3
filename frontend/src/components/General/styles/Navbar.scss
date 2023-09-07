@@ -1,7 +1,6 @@
 @import "../../../services/variables.scss";
 
 .navTemporaire {
-  background-color: #4f4e4e;
   border-radius: 15px;
   width: 95%;
   height: 60%;
@@ -10,6 +9,7 @@
   display: flex;
   align-items: center;
 
+  background-color: #222426;
   ul {
     height: 100%;
     display: flex;
@@ -35,9 +35,11 @@
     }
 
     img {
+      color: #222426;
       display: grid;
       width: fit-content;
       align-items: center;
+      background-color: #222426;
     }
   }
 }
