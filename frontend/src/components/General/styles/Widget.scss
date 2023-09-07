@@ -1,0 +1,29 @@
+.widgetGlobal {
+  text-decoration: none;
+  margin: 8px;
+  width: 150px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.nameWidget {
+  text-decoration: none;
+  color: white;
+  font-family: "jaldi";
+  font-size: 17px;
+  text-align: start;
+  margin-left: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+a {
+  text-decoration: none;
+}
+
+.imgWidget {
+  max-width: 100px;
+  margin: auto;
+}

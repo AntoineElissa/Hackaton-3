@@ -1,0 +1,26 @@
+@import "../../services/variables.scss";
+
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 100%;
+
+  &__news {
+    height: 8%;
+    background-color: white;
+  }
+
+  &__globals {
+    height: 32%;
+    background-color: white;
+  }
+
+  &__widgets {
+    height: 60%;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

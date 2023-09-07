@@ -1,0 +1,38 @@
+@import "../../services/variables.scss";
+
+.discuss {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+  // overflow: hidden;
+
+  &__title {
+    height: $height-title-sections;
+    background-color: white;
+  }
+}
+
+.message-history {
+  overflow: scroll;
+}
+
+.discuss-title {
+  display: flex;
+  height: 5vh;
+  justify-content: space-around;
+  align-items: center;
+
+  .niquetaraceben2 {
+    height: 80%;
+  }
+
+  .niquetaraceben {
+    width: 85%;
+    height: 80%;
+    border-radius: 10px;
+  }
+}

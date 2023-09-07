@@ -1,25 +1,53 @@
-import Blob from "../components/Blob/Blob"
+import "./styles/Home.scss"
+import Widget from "../components/General/Widget"
+import survivalressources from "../assets/images/ressources.png"
+import survivalzone from "../assets/images/survivalzone.png"
+import discussion from "../assets/images/chat.png"
+import meet from "../assets/images/meet.png"
 
-import React, { useState } from "react"
+const widgetData = [
+  {
+    id: 1,
+    widgetColor: "#7Bccc4",
+    widgetName: "Survival zones",
+    widgetImg: survivalzone,
+    linkedPage: "/zones",
+  },
+  {
+    id: 2,
+    widgetColor: "#CCEBC5",
+    widgetName: "Survival Ressources",
+    widgetImg: survivalressources,
+    linkedPage: "/ressources",
+  },
+  {
+    id: 3,
+    widgetColor: "#43A2CA",
+    widgetName: "Chat",
+    widgetImg: discussion,
+    linkedPage: "/discuss",
+  },
+  {
+    id: 4,
+    widgetColor: "#0868AC",
+    widgetName: "Meet Survivors",
+    widgetImg: meet,
+    linkedPage: "/meet",
+  },
+]
 
-export default function Home() {
-  const [temperature, setTemperature] = useState(25) // Initialize temperature state
-
-  const handleTemperatureChange = (newTemperature) => {
-    // Function to update the temperature state
-    setTemperature(newTemperature)
-  }
-
+function Home() {
   return (
-    <div className="Home">
-      <h1>Temperature Blob Test</h1>
-      <input
-        type="number"
-        placeholder="Enter Temperature"
-        value={temperature}
-        onChange={(e) => handleTemperatureChange(Number(e.target.value))}
-      />
-      <Blob temperature={temperature} />
+    <div className="home">
+      <div className="home__news"></div>
+      <div className="home__globals"></div>
+      <div className="home__widgets">
+        {widgetData.map((widget, index) => (
+          <Widget key={index} {...widget} />
+        ))}
+      </div>
     </div>
   )
 }
+
+export default Home

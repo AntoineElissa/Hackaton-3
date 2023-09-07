@@ -1,0 +1,45 @@
+@import "../../../services/variables.scss";
+
+.navTemporaire {
+  border-radius: 15px;
+  width: 95%;
+  height: 60%;
+  margin-top: 18px;
+  margin-left: 9px;
+  display: flex;
+  align-items: center;
+
+  background-color: #222426;
+  ul {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      display: block;
+    }
+
+    a {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      color: white;
+      text-decoration: none;
+    }
+
+    img {
+      color: #222426;
+      display: grid;
+      width: fit-content;
+      align-items: center;
+      background-color: #222426;
+    }
+  }
+}
