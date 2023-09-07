@@ -50,6 +50,9 @@ models.skills.setDatabase(pool)
 models.users = new UsersManager()
 models.users.setDatabase(pool)
 
+models.openAi = new UsersManager()
+models.openAi.setDatabase(pool)
+
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
 
