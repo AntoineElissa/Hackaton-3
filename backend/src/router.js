@@ -7,7 +7,7 @@ const handicapControllers = require("./controllers/HandicapControllers")
 const skillsControllers = require("./controllers/SkillsControllers")
 const coursControllers = require("./controllers/CoursControllers")
 const poiControllers = require("./controllers/PoiControllers")
-const gptControllers = require("./controllers/gptControllers")
+// const gptControllers = require("./controllers/gptControllers")
 // const picturesControllers = require("./controllers/picturesControllers")
 
 router.get("/cours", coursControllers.browse)
@@ -75,9 +75,9 @@ router.post("/openAPI", async (req, res) => {
       data.choices[0].message &&
       typeof data.choices[0].message.content === "string"
     ) {
-      const dataBack = data.choices[0].message.content
+      // const dataBack = data.choices[0].message.content
       // console.log("data: ", dataBack)
-      gptControllers.addConversation(req, dataBack)
+      // gptControllers.addConversation(req, dataBack)
     } else {
       console.error("Les données de réponse ne sont pas valides.")
       // Gérer les données de réponse incorrectes ici
