@@ -13,18 +13,18 @@
 
   &__title {
     height: auto;
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     // background-color: white;
 
-    button{
+    button {
       background: transparent;
-      border:none;
-      height:50%;
+      border: none;
+      height: 50%;
 
-      img{
-        height:100%;
+      img {
+        height: 100%;
       }
     }
   }
