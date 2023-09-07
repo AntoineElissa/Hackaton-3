@@ -1,0 +1,27 @@
+@import "../../../../../variables.scss";
+
+.gallery{
+    display:flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    padding: 2rem;
+
+    &__image{
+        height:100px;
+        width:100px;
+        margin:10px;
+
+        .btn-img{
+            height: 100%;
+            width:100%;
+            background:transparent;
+            border:none;
+            cursor:pointer;
+        }
+
+        img{
+            max-height: 100%;
+            max-width:100%;
+        }
+    }
+}
