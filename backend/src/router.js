@@ -7,7 +7,7 @@ const handicapControllers = require("./controllers/HandicapControllers")
 const skillsControllers = require("./controllers/SkillsControllers")
 const coursControllers = require("./controllers/CoursControllers")
 const poiControllers = require("./controllers/PoiControllers")
-// const gptController = require("./controllers/GptController")
+// const gptControllers = require("./controllers/gptControllers")
 
 router.get("/cours", coursControllers.browse)
 router.get("/cours/:id", coursControllers.read)
@@ -60,6 +60,24 @@ router.post("/openAPI", async (req, res) => {
       options
     )
     const data = await response.json()
+    // console.log("req ", req.body.message)
+    // console.log("data: ", data.choices[0].message.content)
+    // const dataBack = data.choices[0].message.content
+    // console.log("data", data)
+    // if (
+    //   data.choices &&
+    //   data.choices[0] &&
+    //   data.choices[0].message &&
+    //   typeof data.choices[0].message.content === "string"
+    // ) {
+    //   const dataBack = data.choices[0].message.content
+    //   console.log("data: ", dataBack)
+    //   gptControllers.addConversation(req, dataBack, res)
+    // } else {
+    //   console.error("Les données de réponse ne sont pas valides.")
+    //   // Gérer les données de réponse incorrectes ici
+    // }
+
     res.send(data)
   } catch (error) {
     console.error(error)
