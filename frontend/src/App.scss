@@ -8,31 +8,31 @@ body {
   height: 100%;
 }
 
-#root{
-    box-sizing: border-box;
-    padding: 1rem;
-    height:100vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    gap:1.1rem;
-    font-family: $font-jadli;
-    color: white;
+#root {
+  box-sizing: border-box;
+  padding: 1rem;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  font-family: $font-jadli;
+  color: white;
 }
 
 /* ============= CONTENU =========== */
 
 /* HEADER */
-.wrap-header{
-    height:10%;
-    width:100%;
-    // background-color: white;
+.wrap-header {
+  height: 10%;
+  width: 100%;
+  // background-color: white;
 }
 
 /* CONTENT */
-.wrap-content{
-    height:80% ;
-    background-color: grey;
+.wrap-content {
+  height: 80%;
+  background-color: grey;
 }
 
 /* NAV */

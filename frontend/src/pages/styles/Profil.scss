@@ -9,30 +9,26 @@
   padding: 1rem;
   justify-content: space-between;
 
-    &__title{
-        height: $height-title-sections;
-        // background-color: white;
+  &__title {
+    height: $height-title-sections;
+    // background-color: white;
+  }
+
+  &__description {
+    height: 70%;
+    background-color: white;
+    position: relative;
+
+    .profil-pic {
+      position: absolute;
+      top: -20%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 40%;
+      aspect-ratio: 1/1;
+      width: auto;
+      border-radius: 50%;
+      background-color: red;
     }
-
-
-
-    &__description{
-        height: 70%;
-        background-color: white;
-        position:relative;
-
-        .profil-pic{
-            position: absolute;
-            top:-20%;
-            left: 50%;
-            transform: translateX(-50%);
-            height: 40%;
-            aspect-ratio: 1/1;
-            width:auto;
-            border-radius: 50%;
-            background-color: red;
-        }
-
-
-    }
+  }
 }
