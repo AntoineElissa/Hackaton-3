@@ -1,0 +1,80 @@
+@import "../../../../../variables.scss";
+
+.CompUpload {
+  height: 100%;
+  color: black;
+  box-sizing: border-box;
+  padding: 2rem;
+
+  &__wrap-imgPreview {
+    height: 30%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .imgPreview {
+      max-height: 250px;
+      max-width: 300px;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__success {
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  &__import {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    h4 {
+      font-family: $font-family3;
+      margin: 1.5rem;
+    }
+  }
+
+  &__UploadButtons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2rem;
+    margin-top: 1rem;
+  }
+}
+
+.file-input__input {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.file-input__label {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 12px;
+  background-color: #b85959;
+  box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.25);
+
+  img {
+    height: 16px;
+    margin-right: 10px;
+  }
+}
