@@ -1,7 +1,7 @@
 import React from "react"
 import imgArrowLeft from "../../assets/images/arrowLeft-white.png" // Importez l'image de gauche
 import imgArrowRight from "../../assets/images/arrowRight-white.png" // Importez l'image de droite
-import nayan from "../../assets/images/profilNayan.png" // Importez l'image de swipe
+// import nayan from "../../assets/images/profilNayan.png" // Importez l'image de swipe
 
 function CardSwipe({
   survivor,

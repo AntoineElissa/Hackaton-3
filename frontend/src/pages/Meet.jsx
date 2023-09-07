@@ -5,11 +5,11 @@ import CardSwipe from "../components/Meet/cardSwipe"
 import { getOpenai } from "../services/test"
 
 function Meet() {
-  const [init, setInit] = useState(false)
+  // const [init, setInit] = useState(false)
   const [survivors, setSurvivors] = useState(null)
   const [index, setIndex] = useState(0)
   const [description, setDescription] = useState(null)
-  const [prompt, setPrompt] = useState(null)
+  // const [prompt, setPrompt] = useState(null)
 
   const preparePrompt = (survivors) => {
     const prompt = `Imagines un monde post apocalyptique. Internet marche encore, et une application permets de rencontrer des personnes survivalistes autour de sois.
@@ -23,7 +23,7 @@ function Meet() {
     if (survivors !== "null" && survivors) {
       const prompt = preparePrompt(survivors[index])
       const result = getOpenai(prompt)
-      console.log("resultat : ", result)
+      // console.log("resultat : ", result)
       setDescription(result)
     }
   }
