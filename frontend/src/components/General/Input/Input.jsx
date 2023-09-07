@@ -13,6 +13,7 @@ function InputComponent({ addPrompt }) {
       method: "POST",
       body: JSON.stringify({
         message: value,
+        id: 1,
       }),
       headers: {
         "Content-Type": "application/json",
