@@ -19,7 +19,6 @@ import Zones from "./pages/Zones"
 import Navbar from "./components/General/Navbar"
 
 // import ChatbotApp from "./pages/Ia2"
-import Test from "./pages/test"
 
 function App() {
   return (
@@ -39,7 +38,6 @@ function App() {
           <Route path="/meet" element={<Meet />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/zones" element={<Zones />} />
-          <Route path="/test" element={<Test />} />
         </Routes>
       </main>
       <div className="wrap-nav">

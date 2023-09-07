@@ -41,7 +41,7 @@ body {
   height: 80%;
   box-sizing: border-box;
   padding: 1rem;
-//   background-color: $backgroundColor;
+  //   background-color: $backgroundColor;
 
   @media (min-width: 700px) {
     margin: auto;
@@ -55,7 +55,7 @@ body {
 .wrap-nav {
   background-color: #222426;
   height: 12%;
-  width:100%;
-  display:flex;
+  width: 100%;
+  display: flex;
   justify-content: center;
 }
