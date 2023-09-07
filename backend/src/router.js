@@ -7,7 +7,8 @@ const handicapControllers = require("./controllers/HandicapControllers")
 const skillsControllers = require("./controllers/SkillsControllers")
 const coursControllers = require("./controllers/CoursControllers")
 const poiControllers = require("./controllers/PoiControllers")
-// const gptControllers = require("./controllers/gptControllers")
+const gptControllers = require("./controllers/gptControllers")
+// const picturesControllers = require("./controllers/picturesControllers")
 
 router.get("/cours", coursControllers.browse)
 router.get("/cours/:id", coursControllers.read)
@@ -39,6 +40,10 @@ router.post("/handicap", handicapControllers.add)
 router.put("/handicap/:id", handicapControllers.edit)
 router.delete("/handicap/:id", handicapControllers.destroy)
 
+// router.post("/addPicture/:filename", picturesControllers.add)
+// router.delete("/deletePicture/:id", picturesControllers.destroy)
+// router.get("/displayAllPictures", picturesControllers.browse)
+
 router.post("/openAPI", async (req, res) => {
   //   console.log(req.body.message)
   const options = {
@@ -60,23 +65,23 @@ router.post("/openAPI", async (req, res) => {
       options
     )
     const data = await response.json()
-    // console.log("req ", req.body.message)
-    // console.log("data: ", data.choices[0].message.content)
-    // const dataBack = data.choices[0].message.content
-    // console.log("data", data)
-    // if (
-    //   data.choices &&
-    //   data.choices[0] &&
-    //   data.choices[0].message &&
-    //   typeof data.choices[0].message.content === "string"
-    // ) {
-    //   const dataBack = data.choices[0].message.content
-    //   console.log("data: ", dataBack)
-    //   gptControllers.addConversation(req, dataBack, res)
-    // } else {
-    //   console.error("Les données de réponse ne sont pas valides.")
-    //   // Gérer les données de réponse incorrectes ici
-    // }
+    console.log("req ", req.body.message)
+    console.log("data: ", data.choices[0].message.content)
+    const dataBack = data.choices[0].message.content
+    console.log("data", data)
+    if (
+      data.choices &&
+      data.choices[0] &&
+      data.choices[0].message &&
+      typeof data.choices[0].message.content === "string"
+    ) {
+      const dataBack = data.choices[0].message.content
+      console.log("data: ", dataBack)
+      gptControllers.addConversation(req, dataBack)
+    } else {
+      console.error("Les données de réponse ne sont pas valides.")
+      // Gérer les données de réponse incorrectes ici
+    }
 
     res.send(data)
   } catch (error) {
