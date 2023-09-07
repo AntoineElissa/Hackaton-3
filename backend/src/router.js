@@ -65,10 +65,10 @@ router.post("/openAPI", async (req, res) => {
       options
     )
     const data = await response.json()
-    console.log("req ", req.body.message)
-    console.log("data: ", data.choices[0].message.content)
-    const dataBack = data.choices[0].message.content
-    console.log("data", data)
+    // console.log("req ", req.body.message)
+    // console.log("data: ", data.choices[0].message.content)
+    // const dataBack = data.choices[0].message.content
+    // console.log("data", data)
     if (
       data.choices &&
       data.choices[0] &&
@@ -76,7 +76,7 @@ router.post("/openAPI", async (req, res) => {
       typeof data.choices[0].message.content === "string"
     ) {
       const dataBack = data.choices[0].message.content
-      console.log("data: ", dataBack)
+      // console.log("data: ", dataBack)
       gptControllers.addConversation(req, dataBack)
     } else {
       console.error("Les données de réponse ne sont pas valides.")
