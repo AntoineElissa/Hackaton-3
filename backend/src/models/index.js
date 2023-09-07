@@ -34,6 +34,7 @@ const HandicapManager = require("./HandicapsManager")
 const SkillsManager = require("./SkillsManager")
 const PoiManager = require("./PoiManager")
 const UsersManager = require("./UsersManager")
+// const GptManager = require("./GptManager")
 
 models.cours = new CoursManager()
 models.cours.setDatabase(pool)
@@ -49,6 +50,9 @@ models.skills.setDatabase(pool)
 
 models.users = new UsersManager()
 models.users.setDatabase(pool)
+
+// models.gpt = new GptManager()
+// models.gpt.setDatabase(pool)
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model

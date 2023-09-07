@@ -1,6 +1,5 @@
 @import "../../services/variables.scss";
 
-
 .radarTitle {
   height: $height-title-sections;
   display: flex;
@@ -8,10 +7,9 @@
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  background-color: #7BCCC4;
+  background-color: #7bccc4;
   padding: 10px;
   .mapTitle {
-
   }
 
   .mapLogoImg {
@@ -26,41 +24,38 @@
   justify-content: flex-start;
   align-items: center;
   gap: 20px;
-  background-color: #7BCCC4;
+  background-color: #7bccc4;
   padding: 10px;
 
   .searchLogoImg {
-
   }
 
   .searchEntry {
     height: 30px;
-    background-color: #073D48;
+    background-color: #073d48;
     border-radius: 8px;
     padding: 0px 20px;
   }
 
   .searchButton {
     height: 30px;
-    background-color: #073D48;
+    background-color: #073d48;
     border-radius: 8px;
     padding: 0px 20px;
     border: none;
-    color: white;   
+    color: white;
   }
 }
 
 .map-container {
   height: 100%;
   width: 100%;
-  
+
   .tileLayer {
-  
   }
 
   .mapFilter {
     height: 10%;
     width: 100%;
-  
   }
 }

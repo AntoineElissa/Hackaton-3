@@ -8,10 +8,25 @@
   box-sizing: border-box;
   padding: 1rem;
   justify-content: space-between;
+  border-radius: 8px;
+  background-color: rgba(128, 128, 128, 0.169);
 
   &__title {
-    height: $height-title-sections;
-    background-color: white;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    // background-color: white;
+
+    button {
+      background: transparent;
+      border: none;
+      height: 50%;
+
+      img {
+        height: 100%;
+      }
+    }
   }
 
   &__description {
@@ -28,7 +43,7 @@
       aspect-ratio: 1/1;
       width: auto;
       border-radius: 50%;
-      background-color: red;
+      // background-color: red;
     }
   }
 }

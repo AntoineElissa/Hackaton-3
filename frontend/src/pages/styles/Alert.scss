@@ -1,1 +1,60 @@
 @import "../../services/variables.scss";
+
+.alert {
+  display: flex;
+  height: 100%;
+  max-width: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+
+  &__buzzer {
+    height: 50%;
+    width: auto;
+    aspect-ratio: 1/1;
+    // background-color: grey;
+    position: relative;
+    border-radius: 10px;
+    cursor: pointer;
+
+    .rond {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: 80%;
+      width: auto;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      border: 10px solid white;
+      background-color: red;
+    }
+
+    .rond_bg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: 0%;
+      width: auto;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      border: 10px solid white;
+      background-color: red;
+      animation: rondExtend 2s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes rondExtend {
+  from {
+    height: 0%;
+    opacity: 1;
+  }
+
+  to {
+    height: 80%;
+    opacity: 0;
+  }
+}
