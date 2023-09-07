@@ -10,14 +10,19 @@ body {
 
 #root {
   box-sizing: border-box;
-  padding: 1rem;
+  // padding: 1rem;
   height: 100vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 0.5rem;
   font-family: $font-jadli;
   color: white;
+
+  @media (min-width: 700px) {
+    padding: 0;
+    gap: 10vh;
+  }
 }
 
 /* ============= CONTENU =========== */
@@ -26,17 +31,31 @@ body {
 .wrap-header {
   height: 10%;
   width: 100%;
+  box-sizing: border-box;
+  padding: 0.2rem;
   // background-color: white;
 }
 
 /* CONTENT */
 .wrap-content {
   height: 80%;
-  background-color: grey;
+  box-sizing: border-box;
+  padding: 1rem;
+  //   background-color: $backgroundColor;
+
+  @media (min-width: 700px) {
+    margin: auto;
+    width: 100%;
+    aspect-ratio: 350/400;
+    max-width: 700px;
+  }
 }
 
 /* NAV */
 .wrap-nav {
   background-color: #222426;
   height: 12%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
