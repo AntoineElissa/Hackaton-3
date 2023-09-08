@@ -22,26 +22,30 @@
   width: 100%;
   justify-content: flex-end;
   align-items: center;
-  gap: 1rem;
 
   &__imgSwipe {
     width: 100%;
-    height: 30%;
+    height: 20%;
     display: flex;
     justify-content: center;
     position: relative;
   }
 
-  &__arrows {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    display: flex;
-    transform: translateY(-50%);
-    justify-content: space-between;
-    // background-color: white;
-  }
+  // &__arrows {
+  //   position: absolute;
+  //   top: 50%;
+  //   left: 0;
+  //   width: 100%;
+  //   display: flex;
+  //   transform: translateY(-50%);
+  //   justify-content: space-between;
+  //   // background-color: white;
+
+  //   button {
+  //     background: transparent;
+  //     border: none;
+  //   }
+  // }
 
   &__contentSwipe {
     flex: 1;
@@ -66,7 +70,7 @@
   }
 
   &__descr {
-    height: 30%;
+    height: 70%;
     width: 100%;
 
     display: flex;
@@ -81,11 +85,13 @@
       padding: 1rem;
       border-radius: 10px;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      overflow: scroll;
+      color: black;
     }
   }
 
   &__skills {
-    height: 65%;
+    height: 25%;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -99,6 +105,20 @@
       padding: 1rem;
       border-radius: 10px;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+      color: black;
+      display: flex;
+
+      .skill-column {
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+
+      .skill-column span:last-child {
+        font-size: 20px;
+      }
     }
   }
 }
@@ -111,10 +131,53 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  border: 3px solid white;
   background-color: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
   img {
     object-fit: contain;
+    border-radius: 50%;
+    height: 100%;
+  }
+}
+
+.wrap-imgSend {
+  position: relative;
+  height: 50px;
+  display: flex;
+  align-items: center;
+
+  .wrap-imgPlusDinspi {
+    aspect-ratio: 1/1;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    position: relative;
+    background-color: #094977;
+
+    img {
+      height: 60%;
+    }
+  }
+
+  .swipe-arrows {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    transform: translateY(-50%);
+    justify-content: space-between;
+    // background-color: white;
+
+    button {
+      background: transparent;
+      border: none;
+    }
   }
 }

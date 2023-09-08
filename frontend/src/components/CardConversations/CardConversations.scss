@@ -1,0 +1,48 @@
+.convers {
+  width: 100%;
+  height: 15%;
+  // background-color: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  box-sizing: border-box;
+  padding: 4px 10px 4px 10px;
+
+  &__img {
+    height: 80%;
+    border-radius: 50%;
+    width: auto;
+    aspect-ratio: 1/1;
+    // background-color: grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      height: 100%;
+      border-radius: 50%;
+    }
+  }
+
+  &__content {
+    color: black;
+    overflow: hidden;
+  }
+
+  .lu {
+    font-weight: normal;
+  }
+
+  .nonlu {
+    font-weight: bold;
+  }
+}
+
+.convlu {
+  background-color: white;
+}
+
+.convNonlu {
+  background-color: rgb(252, 203, 162);
+}

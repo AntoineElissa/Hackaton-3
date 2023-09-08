@@ -30,7 +30,7 @@ router.delete("/skills/:id", skillsControllers.destroy)
 
 router.get("/users", usersControllers.browse)
 router.get("/users/:id", usersControllers.read)
-router.post("/users", usersControllers.add)
+router.post("/register", usersControllers.add)
 router.put("/users/:id", usersControllers.edit)
 router.delete("/users/:id", usersControllers.destroy)
 
@@ -40,12 +40,8 @@ router.post("/handicap", handicapControllers.add)
 router.put("/handicap/:id", handicapControllers.edit)
 router.delete("/handicap/:id", handicapControllers.destroy)
 
-// router.post("/addPicture/:filename", picturesControllers.add)
-// router.delete("/deletePicture/:id", picturesControllers.destroy)
-// router.get("/displayAllPictures", picturesControllers.browse)
-
 router.post("/openAPI", async (req, res) => {
-  //   console.log(req.body.message)
+  // console.log(" requete entrante : ", req.body.message)
   const options = {
     method: "POST",
     headers: {
