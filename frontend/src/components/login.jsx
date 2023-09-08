@@ -1,7 +1,7 @@
 import "./General/styles/login.scss"
 import LogoGoogle from "../assets/images/logoGoogle.png"
 import appleLogo from "../assets/images/apple.png"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
 
@@ -81,7 +81,9 @@ const Login = () => {
       <hr className="sepaToForgot" />
       <div className="forgot">
         <button className="forgotButton"> Forgot Password ?</button>
-        <button className="signIn">Sign In</button>
+        <Link to="/register">
+          <button className="signIn">Sign Up</button>
+        </Link>
       </div>
     </div>
   )
