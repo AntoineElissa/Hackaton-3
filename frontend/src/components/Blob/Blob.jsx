@@ -42,7 +42,7 @@ const Blob = ({ temperature }) => {
         <div className="temperature-container">
           <div className="temperature">
             <img src={temp} alt="temperature icon" />
-            <p>{temperature}°C</p>
+            <p>{temperature}43,2°C</p>
           </div>
           {blobImage && <img className="blobBlob" src={blobImage} alt="blob" />}
         </div>

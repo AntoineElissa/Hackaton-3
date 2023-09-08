@@ -1,11 +1,8 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+@import "../../services/variables.scss";
 
 .marquee {
   position: relative;
+  width: 100%;
   background: linear-gradient(
     90deg,
     #e88b00 -0.64%,
@@ -31,9 +28,9 @@
   padding: 0 2%;
 }
 
-// .spacer {
-//   height: 1vh;
-// }
+.spacer {
+  height: 1vh;
+}
 .arrow {
   width: 2vw;
   height: 2vh;

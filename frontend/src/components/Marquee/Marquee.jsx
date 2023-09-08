@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react"
 import { gsap } from "gsap"
-import ArrowSvg from "../../assets/images/Arrow.svg"
+import ArrowSvg from "../../assets/images/marqueeArrow.svg"
 import "./Marquee.scss"
 
 const Marquee = () => {
@@ -12,14 +12,17 @@ const Marquee = () => {
     const marqueeInner = marqueeInnerRef.current
     const arrows = arrowsRef.current
 
-    const tween = gsap.to(marqueeInner, {
-      xPercent: 100, // Move marquee from left to right
-      repeat: -1,
-      duration: 100, // Increase this value for a slower animation
+    const marqueeWidth = marqueeInner.offsetWidth
+    const marqueeContainerWidth = marqueeInner.parentElement.offsetWidth
+
+    gsap.set(marqueeInner, { x: marqueeContainerWidth })
+
+    const animation = gsap.to(marqueeInner, {
+      x: -marqueeWidth,
+      duration: 20, // Adjust the duration as needed for the scrolling speed
       ease: "linear",
+      repeat: 1,
     })
-    tween.totalProgress(0.5)
-    gsap.set(marqueeInner, { xPercent: -50 })
 
     const handleScroll = () => {
       const scrollY = window.scrollY
@@ -40,6 +43,9 @@ const Marquee = () => {
 
     window.addEventListener("scroll", handleScroll)
 
+    // Start the marquee animation when the component mounts
+    animation.play()
+
     return () => {
       window.removeEventListener("scroll", handleScroll)
     }
@@ -53,7 +59,7 @@ const Marquee = () => {
         <div className="marquee_inner" ref={marqueeInnerRef}>
           {Array.from({ length: 12 }).map((_, index) => (
             <div className="marquee_part" key={index}>
-              LATEST NEWS Water Flood {/* Combine "Water" and "Flood" */}
+              LATEST NEWS Fires
               <div
                 className="arrow"
                 ref={(el) => (arrowsRef.current[index] = el)}
