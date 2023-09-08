@@ -28,6 +28,7 @@ import GeneralContext from "./services/GeneralContext"
 
 import { conversType } from "./services/test"
 import { v4 as uuidv4 } from "uuid"
+import Marquee from "./components/Marquee/Marquee"
 
 function App() {
   const [survivors, setSurvivors] = useState(null)
@@ -109,8 +110,10 @@ function App() {
       >
         <header className="wrap-header">
           <Header />
-        </header>
 
+          {/* Afficher Marquee uniquement sur la page /home */}
+        </header>
+        {location.pathname === "/home" && <Marquee />}{" "}
         <main className="wrap-content">
           <Routes>
             <Route path="/" element={<Log />} />
