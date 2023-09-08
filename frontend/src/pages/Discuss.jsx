@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import { getCurrentTime } from "../services/utils.js"
 
 import Prompt from "../components/General/prompts/Prompt"
-import imgIa from "../assets/images/ia.png"
+import imgNayan from "../assets/images/profilNayan.png"
 import arrow from "../assets/images/send.png"
 const socket = io.connect("http://localhost:3001")
 
@@ -44,7 +44,7 @@ function Discuss() {
               type="receive"
               data={message.text}
               time={time}
-              pic={imgIa}
+              pic={imgNayan}
             />
           </div>
         ))}

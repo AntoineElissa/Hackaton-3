@@ -1,4 +1,5 @@
 import React from "react"
+import { useNavigate } from "react-router-dom"
 import imgArrowLeft from "../../assets/images/arrowLeft-white.png" // Importez l'image de gauche
 import imgArrowRight from "../../assets/images/arrowRight-white.png" // Importez l'image de droite
 import imgSend from "../../assets/images/send.png"
@@ -13,6 +14,11 @@ function CardSwipe({
   skills,
 }) {
   const { name, picture } = survivor
+  const navigate = useNavigate()
+
+  const navigateToDiscussPage = () => {
+    navigate("/discuss")
+  }
 
   return (
     <section className="swipe">
@@ -49,7 +55,7 @@ function CardSwipe({
           <div className="wrap-imgPlusDinspi">
             <img src={imgSend} alt="img-send" />
           </div>
-          <div className="swipe-arrows">
+          <div className="swipe-arrows" onClick={navigateToDiscussPage}>
             <button onClick={onClickLeft}>
               <img src={imgArrowLeft} alt="arrow-left" />
             </button>
