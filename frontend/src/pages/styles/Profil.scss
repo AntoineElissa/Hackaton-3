@@ -11,6 +11,8 @@
   border-radius: 8px;
   background-color: rgba(128, 128, 128, 0.169);
 
+  h2{}
+
   &__title {
     height: auto;
     display: flex;
@@ -29,6 +31,17 @@
     }
   }
 
+  // .titremescouillasses{
+  //   display:flex;
+  //   justify-content: flex-start;
+  //   align-items: flex-end;
+  // }
+  .titremecouilles{
+    margin-bottom:2rem;
+  }
+
+  
+
   &__description {
     height: 70%;
     background-color: white;
@@ -43,7 +56,6 @@
       aspect-ratio: 1/1;
       width: auto;
       border-radius: 50%;
-      box-shadow: 0px 0px 15px 6px #524646
       // background-color: red;
     }
   }
