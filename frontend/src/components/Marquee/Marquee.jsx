@@ -53,8 +53,6 @@ const Marquee = () => {
 
   return (
     <>
-      <section className="spacer"></section>
-
       <section className="marquee">
         <div className="marquee_inner" ref={marqueeInnerRef}>
           {Array.from({ length: 12 }).map((_, index) => (
@@ -70,7 +68,6 @@ const Marquee = () => {
           ))}
         </div>
       </section>
-      <section className="spacer"></section>
     </>
   )
 }

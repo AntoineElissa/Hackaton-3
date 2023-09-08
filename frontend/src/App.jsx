@@ -40,7 +40,6 @@ function App() {
       .get("https://randomuser.me/api/?results=20")
       .then((response) => {
         const data = response.data.results
-
         const tableauInfos = data.map((survivor) => {
           return {
             name: survivor.name,
@@ -69,34 +68,6 @@ function App() {
       })
   }, [])
 
-  // useEffect(() => {
-  //   const url = `https://randomuser.me/api/?results=${conversation.length}`
-  //   axios
-  //     .get(url)
-  //     .then((response) => {
-  //       const updatedConversation = conversation.map((item, index) => ({
-  //         ...item,
-  //         name:
-  //           response.data.results[index].name.first +
-  //           response.data.results[index].name.last,
-  //         pic: response.data.results[index].picture.large,
-  //       }))
-
-  //       setConvers(updatedConversation)
-  //     })
-  //     .catch((error) => {
-  //       console.error(error)
-  //     })
-  // }, [])
-
-  useEffect(() => {
-    // console.log("survivors : ", survivors)
-    // console.log("tab : ", tabSurvivors)
-    if (convers) {
-      // console.log("converse: ", convers)
-    }
-  }, [tabSurvivors, survivors, convers])
-
   return (
     <>
       <GeneralContext.Provider
@@ -110,10 +81,11 @@ function App() {
       >
         <header className="wrap-header">
           <Header />
-
           {/* Afficher Marquee uniquement sur la page /home */}
         </header>
-        {location.pathname === "/home" && <Marquee />}{" "}
+        <div className="wrap-marquee">
+          <Marquee />
+        </div>
         <main className="wrap-content">
           <Routes>
             <Route path="/" element={<Log />} />

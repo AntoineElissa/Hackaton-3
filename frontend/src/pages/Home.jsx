@@ -13,7 +13,7 @@ const widgetData = [
     widgetColor: "#7Bccc4",
     widgetName: "Survival zones",
     widgetImg: survivalzone,
-    linkedPage: "/zones",
+    linkedPage: "/radar",
   },
   {
     id: 2,

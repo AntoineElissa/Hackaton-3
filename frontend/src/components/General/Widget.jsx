@@ -13,7 +13,6 @@ const Widget = (props) => {
       <NavLink to={linkedPage} exact activeClassName="active">
         <div className="widgetGlobal" style={widgetBgColor}>
           <h1 className="nameWidget">{widgetName}</h1>
-
           <img className="imgWidget" src={widgetImg} alt="" />
         </div>
       </NavLink>

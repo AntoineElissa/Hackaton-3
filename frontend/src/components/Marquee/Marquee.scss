@@ -9,16 +9,18 @@
     rgba(73, 120, 190, 0.99) 100%
   );
   color: white;
-  padding: 2% 0;
+  padding: 1.8% 0;
   font-size: 1.5vh;
   text-transform: uppercase;
   overflow: hidden;
+  height:auto;
 }
 .marquee_inner {
   display: flex;
   width: fit-content;
   flex: auto;
   flex-direction: row;
+  max-height:30px;
 }
 
 .marquee_part {
