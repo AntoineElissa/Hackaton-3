@@ -18,8 +18,20 @@
   }
 }
 
+.resume-contact{
+  height:10%;
+  display:flex;
+  gap:1.5rem;
+
+  img{
+    height:100%;
+    border-radius: 50%;
+  }
+}
+
 .message-history {
   overflow: scroll;
+  height:100%;
 }
 
 .discuss-title {

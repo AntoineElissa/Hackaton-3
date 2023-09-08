@@ -7,7 +7,9 @@ function CardConversation({ conversation }) {
   const navigate = useNavigate()
 
   const navigateToTchat = () => {
-    navigate(`/discuss/${conversation}`)
+    const conversationString = JSON.stringify(conversation)
+    localStorage.setItem("conversation", conversationString) // Sauvegarde dans le localStorage
+    navigate(`/discuss`)
   }
 
   return (
