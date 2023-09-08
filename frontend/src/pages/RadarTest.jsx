@@ -16,7 +16,6 @@ import waterImg from "../assets/images/radarImg/water.png"
 import woodImg from "../assets/images/radarImg/wood.png"
 import zombieImg from "../assets/images/radarImg/zombie.png"
 import globeImg from "../assets/images/radarImg/globe.png"
-// import mars3d from "../assets/images/radarImg/globeGif.gif"
 
 export default function Map() {
   // ------------ Switch from Globe image to Map ----------
@@ -157,7 +156,7 @@ export default function Map() {
     positions: generatePositions(
       userLocation ? userLocation.latitude : 43.6,
       userLocation ? userLocation.longitude : 1.4,
-      0.9,
+      2.5,
       10
     ),
   }))
