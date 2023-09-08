@@ -176,13 +176,14 @@
 }
 
 
-.swipe-arrows{
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
+// .swipe-arrows{
+//   position: absolute;
+//   top: 50%;
+//   left: 0;
+//   width: 100%;
+//   display: flex;
+//   align-items: center;
+  
 
   .wrap-imgPlusDinspi {
     aspect-ratio: 1/1;
@@ -217,7 +218,7 @@
     }
   }
 }
-}
+
 
 
 .swipe-unloaded{
