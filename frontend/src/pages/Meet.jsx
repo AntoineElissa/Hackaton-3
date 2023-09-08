@@ -25,7 +25,7 @@ function Meet() {
   const sendToGPT = async (survivors, index) => {
     if (survivors !== null && survivors) {
       const prompt = preparePrompt(survivors[index])
-      console.log("prompt : " + prompt)
+      // console.log("prompt : " + prompt)
       const resultPrompt1 = await getOpenai(prompt[0]) // Await the result here
       const resultPrompt2 = await getOpenai(prompt[1])
       const validJSON = resultPrompt2.replace(/'/g, '"')
