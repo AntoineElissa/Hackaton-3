@@ -16,16 +16,16 @@ const widgetData = [
   {
     id: 2,
     widgetColor: "#CCEBC5",
-    widgetName: "Survival Ressources",
+    widgetName: "Survival Advice",
     widgetImg: survivalressources,
-    linkedPage: "/ressources",
+    linkedPage: "/resources",
   },
   {
     id: 3,
     widgetColor: "#43A2CA",
     widgetName: "Chat",
     widgetImg: discussion,
-    linkedPage: "/discuss",
+    linkedPage: "/conversations",
   },
   {
     id: 4,

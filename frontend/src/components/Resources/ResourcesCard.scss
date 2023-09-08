@@ -1,0 +1,45 @@
+.resource-card {
+  display: flex;
+  background-color: white;
+  position: relative;
+  border-radius: 8px;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 0.5rem;
+
+  p {
+    color: black;
+  }
+
+  h3 {
+    color: black;
+  }
+}
+
+.wrap-resource-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80%;
+  width: auto;
+  padding: 1rem;
+
+  .resource-img {
+    height: 50px;
+    object-fit: contain;
+  }
+
+  .buttonResources {
+    height: 30px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: "jaldi";
+    border-radius: 2px;
+    background-color: #fff;
+    margin-top: 20px;
+    border: none;
+  }
+}
