@@ -1,6 +1,6 @@
 import "./styles/Discuss.scss"
 import io from "socket.io-client"
-import { useParams } from "react-router-dom"
+// import { useParams } from "react-router-dom"
 import { useEffect, useState, useRef } from "react"
 import { getCurrentTime } from "../services/utils.js"
 
