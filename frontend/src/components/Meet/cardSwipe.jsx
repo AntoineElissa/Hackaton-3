@@ -1,9 +1,11 @@
-import React from "react"
 import { useNavigate } from "react-router-dom"
+import { useContext } from "react"
 import imgArrowLeft from "../../assets/images/arrowLeft-white.png" // Importez l'image de gauche
 import imgArrowRight from "../../assets/images/arrowRight-white.png" // Importez l'image de droite
 import imgSend from "../../assets/images/send.png"
 // import nayan from "../../assets/images/profilNayan.png" // Importez l'image de swipe
+import GeneralContext from "../../services/GeneralContext"
+import { v4 as uuidv4 } from "uuid"
 
 function CardSwipe({
   survivor,
@@ -14,11 +16,25 @@ function CardSwipe({
   skills,
   loaded,
 }) {
-  const { name, picture } = survivor
+  const { name, pic } = survivor
+  const { setConvers } = useContext(GeneralContext)
+
+  // console.log("survivorrrrr :", survivor)
+
   const navigate = useNavigate()
 
   const navigateToDiscussPage = () => {
-    navigate("/discuss")
+    const newUser = {
+      name: name.first + " " + name.last,
+      pic: pic.large,
+      lu: "false",
+      convers: "",
+      type: "receive",
+      id: uuidv4(),
+    }
+
+    setConvers((prevConvers) => [...prevConvers, newUser]) // Mise à jour de la conversation existante
+    navigate(`/discuss/${newUser.id}`)
   }
 
   return (
@@ -29,7 +45,7 @@ function CardSwipe({
         }`}
       >
         <div className="wrap-img">
-          <img src={picture.large} alt="img-swipe" />
+          <img src={pic.large} alt="img-swipe" />
         </div>
 
         <h2 style={{ margin: "0", padding: "0" }}>

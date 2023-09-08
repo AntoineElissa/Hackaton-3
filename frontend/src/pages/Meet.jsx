@@ -1,17 +1,20 @@
 import "./styles/Meet.scss"
-import { useEffect, useState } from "react"
-import axios from "axios"
+import { useContext, useEffect, useState } from "react"
 import CardSwipe from "../components/Meet/cardSwipe"
 import { getOpenai } from "../services/test"
 
+import GeneralContext from "../services/GeneralContext"
+
 function Meet() {
   // const [init, setInit] = useState(false)
-  const [survivors, setSurvivors] = useState(null)
+
   const [index, setIndex] = useState(0)
   const [description, setDescription] = useState(null)
   const [skills, setSkills] = useState(null)
   const [loaded, setLoaded] = useState(false)
   // const [prompt, setPrompt] = useState(null)
+
+  const { tabSurvivors } = useContext(GeneralContext)
 
   const preparePrompt = (survivors) => {
     const prompt1 = `Imagines un monde post apocalyptique. il y a des zombies, il fait chaud, il y a des tornades, tsunami, seismes... . une application permets de rencontrer des personnes survivalistes autour de sois.
@@ -24,7 +27,8 @@ function Meet() {
   }
 
   const sendToGPT = async (survivors, index) => {
-    if (survivors !== null && survivors) {
+    // console.log(survivors[index])
+    if (survivors[index] !== null && survivors) {
       const prompt = preparePrompt(survivors[index])
       // console.log("prompt : " + prompt)
       const resultPrompt1 = await getOpenai(prompt[0]) // Await the result here
@@ -39,42 +43,32 @@ function Meet() {
 
   /* fetch */
   useEffect(() => {
-    axios
-      .get("https://randomuser.me/api/?results=20")
-      .then((response) => {
-        setSurvivors(response.data.results)
-        sendToGPT(response.data.results, index)
-      })
-      .catch((error) => {
-        console.error(error)
-      })
+    sendToGPT(tabSurvivors, index)
   }, [])
 
   /* Gestion index */
   useEffect(() => {
     if (index < 0) {
-      setIndex(survivors.length - 1)
+      setIndex(tabSurvivors.length - 1)
     }
 
-    if (survivors && index >= survivors.length) {
+    if (tabSurvivors && index >= tabSurvivors.length) {
       setIndex(0)
     }
 
     /* GEPETO */
+    sendToGPT(tabSurvivors, index)
     setLoaded(false)
-    sendToGPT(survivors, index)
-  }, [index, survivors])
-
-  useEffect(() => {}, [index])
+  }, [index])
 
   return (
     <div className="meet">
       <section className="meet__title">
         <h2>Meeting survivor 🤝</h2>
       </section>
-      {survivors && survivors.length > 0 && (
+      {tabSurvivors && tabSurvivors.length > 0 && (
         <CardSwipe
-          survivor={survivors[index]}
+          survivor={tabSurvivors[index]}
           description={description} // Pass the description here
           skills={skills}
           index={index}
