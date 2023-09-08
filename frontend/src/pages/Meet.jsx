@@ -10,6 +10,7 @@ function Meet() {
   const [index, setIndex] = useState(0)
   const [description, setDescription] = useState(null)
   const [skills, setSkills] = useState(null)
+  const [loaded, setLoaded] = useState(false)
   // const [prompt, setPrompt] = useState(null)
 
   const preparePrompt = (survivors) => {
@@ -32,6 +33,7 @@ function Meet() {
       const skillsArray = JSON.parse(validJSON)
       setDescription(resultPrompt1)
       setSkills(skillsArray)
+      setLoaded(true)
     }
   }
 
@@ -59,6 +61,7 @@ function Meet() {
     }
 
     /* GEPETO */
+    setLoaded(false)
     sendToGPT(survivors, index)
   }, [index, survivors])
 
@@ -75,6 +78,7 @@ function Meet() {
           description={description} // Pass the description here
           skills={skills}
           index={index}
+          loaded={loaded}
           onClickLeft={() => setIndex((prev) => prev - 1)}
           onClickRight={() => setIndex((prev) => prev + 1)}
         />
