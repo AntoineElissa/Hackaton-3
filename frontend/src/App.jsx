@@ -18,6 +18,7 @@ import Meet from "./pages/Meet"
 import Resources from "./pages/Resources"
 import Zones from "./pages/Zones"
 import Navbar from "./components/General/Navbar"
+import Register from "./pages/Register"
 import RadarTest from "./pages/RadarTest"
 import Conversations from "./pages/Conversations"
 
@@ -41,6 +42,7 @@ function App() {
           <Route path="/meet" element={<Meet />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/zones" element={<Zones />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/conversations" element={<Conversations />} />
         </Routes>
       </main>
