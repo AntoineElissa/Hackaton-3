@@ -16,7 +16,6 @@ import waterImg from "../assets/images/radarImg/water.png"
 import woodImg from "../assets/images/radarImg/wood.png"
 import zombieImg from "../assets/images/radarImg/zombie.png"
 import globeImg from "../assets/images/radarImg/globe.png"
-// import mars3d from "../assets/images/radarImg/globeGif.gif"
 
 export default function Map() {
   // ------------ Switch from Globe image to Map ----------
@@ -78,82 +77,89 @@ export default function Map() {
       name: "camping",
       imgUrl: "src/assets/images/radarImg/camping.png",
       imgSrc: campingImg,
-      coordx: 50,
-      coordy: 2,
     },
     {
       id: 1,
       name: "electricity",
       imgUrl: "src/assets/images/radarImg/electricity.png",
       imgSrc: electricityImg,
-      coordx: 51,
-      coordy: 2,
     },
     {
       id: 2,
       name: "hospital",
       imgUrl: "src/assets/images/radarImg/hospital.png",
       imgSrc: hospitalImg,
-      coordx: 52,
-      coordy: 2,
     },
     {
       id: 3,
       name: "petrol",
       imgUrl: "src/assets/images/radarImg/petrol.png",
       imgSrc: petrolImg,
-      coordx: 53,
-      coordy: 2,
     },
     {
       id: 4,
       name: "rebel",
       imgUrl: "src/assets/images/radarImg/rebel.png",
       imgSrc: rebelImg,
-      coordx: 54,
-      coordy: 2,
     },
     {
       id: 5,
       name: "shelter",
       imgUrl: "src/assets/images/radarImg/shelter.png",
       imgSrc: shelterImg,
-      coordx: 55,
-      coordy: 2,
     },
     {
       id: 6,
       name: "shop",
       imgUrl: "src/assets/images/radarImg/shop.png",
       imgSrc: shopImg,
-      coordx: 56,
-      coordy: 2,
     },
     {
       id: 7,
       name: "water",
       imgUrl: "src/assets/images/radarImg/water.png",
       imgSrc: waterImg,
-      coordx: 57,
-      coordy: 2,
     },
     {
       id: 8,
       name: "wood",
       imgUrl: "src/assets/images/radarImg/wood.png",
       imgSrc: woodImg,
-      coordx: 58,
-      coordy: 2,
     },
     {
       id: 9,
       name: "zombie",
       imgUrl: "src/assets/images/radarImg/zombie.png",
       imgSrc: zombieImg,
-      coordx: 59,
-      coordy: 2,
     },
   ]
+
+  // ----------- To generate random positions for the POIs -------------
+
+  function generatePositions(centerLat, centerLng, radius, numPositions) {
+    const positions = []
+
+    for (let i = 0; i < numPositions; i++) {
+      const randomLatOffset = (Math.random() - 0.5) * radius * 2
+      const randomLngOffset = (Math.random() - 0.5) * radius * 2
+
+      const lat = centerLat + randomLatOffset / 110.574
+      const lng = centerLng + randomLngOffset / (111.32 * Math.cos(centerLat))
+
+      positions.push([lat, lng])
+    }
+    return positions
+  }
+
+  const iconTabWithPositions = iconTab.map((icon) => ({
+    ...icon,
+    positions: generatePositions(
+      userLocation ? userLocation.latitude : 43.6,
+      userLocation ? userLocation.longitude : 1.4,
+      2.5,
+      10
+    ),
+  }))
 
   // ---------- To filter the POI -------------
   const [selectedOptions, setSelectedOptions] = useState([])
@@ -164,7 +170,7 @@ export default function Map() {
       setSelectedOptions([...selectedOptions, option])
     }
   }
-  const filteredIcons = iconTab.filter((poi) =>
+  const filteredIcons = iconTabWithPositions.filter((poi) =>
     selectedOptions.includes(poi.name)
   )
 
@@ -174,13 +180,6 @@ export default function Map() {
         <h2 className="mapTitle">Radar Zone</h2>
         <img className="mapLogoImg" src={mapLogo} alt="logo map" />
       </section>
-      {/* <section className="radarSearch">
-        <img className="searchLogoImg" src={searchLogo} alt="search logo" />
-        <div className="searchEntry">search something here</div>
-        <button type="button" className="searchButton">
-          Search
-        </button>
-      </section> */}
       <div className="mapMain">
         {!showMap ? (
           <button
@@ -196,7 +195,7 @@ export default function Map() {
             center={
               userLocation
                 ? [userLocation.latitude, userLocation.longitude]
-                : [50, 10]
+                : [43.6, 1.4]
             }
             zoom={7}
             scrollWheelZoom={true}
@@ -212,23 +211,25 @@ export default function Map() {
               position={
                 userLocation
                   ? [userLocation.latitude, userLocation.longitude]
-                  : [50, 10]
+                  : [43.6, 1.4]
               }
               ref={mapRef}
             ></Marker>
 
             <div className="mapFilter">
-              {filteredIcons.map((poi) => (
-                <Marker
-                  position={[poi.coordx, poi.coordy]}
-                  icon={L.icon({
-                    iconUrl: poi.imgUrl,
-                    iconSize: [28, 28],
-                    iconAnchor: [14, 28],
-                  })}
-                  key={poi.id}
-                ></Marker>
-              ))}
+              {filteredIcons.map((poi) =>
+                poi.positions.map((position, index) => (
+                  <Marker
+                    position={position}
+                    icon={L.icon({
+                      iconUrl: poi.imgUrl,
+                      iconSize: [28, 28],
+                      iconAnchor: [14, 28],
+                    })}
+                    key={poi.id + "-" + index}
+                  ></Marker>
+                ))
+              )}
             </div>
           </MapContainer>
         )}
