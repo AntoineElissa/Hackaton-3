@@ -9,22 +9,29 @@ function Meet() {
   const [survivors, setSurvivors] = useState(null)
   const [index, setIndex] = useState(0)
   const [description, setDescription] = useState(null)
+  const [skills, setSkills] = useState(null)
   // const [prompt, setPrompt] = useState(null)
 
   const preparePrompt = (survivors) => {
-    const prompt = `Imagines un monde post apocalyptique. Internet marche encore, et une application permets de rencontrer des personnes survivalistes autour de sois.
-    Peux-tu me générer une description amusante pour une personnage nommé ${survivors.name.first} ${survivors.name.last}, de sexe ${survivors.gender} d'age ${survivors.dob.age}, soit créatif !
-    Peux-tu également me lister 5 compétences qui pourraient être utiles en terme de survivalisme ? (fonction de l'age, et du sexe) `
+    const prompt1 = `Imagines un monde post apocalyptique. il y a des zombies, il fait chaud, il y a des tornades, tsunami, seismes... . une application permets de rencontrer des personnes survivalistes autour de sois.
+    imagines une description amusante et saugrenue pour une personne nommée ${survivors.name.first} ${survivors.name.last}, de sexe ${survivors.gender} et d'age ${survivors.dob.age} qui souhaite rencontrer d'autres personnes. soit créatif !
+    en anglais max 150 caractères`
 
-    return prompt
+    const prompt2 = `Dans un monde apocalyprique, peux-tu me montrer 3 skills qui serait utile pour une communauté. Peux-tu répondre sous la forme d'un tableau [{skill: "bucheron", emoji: "🪓"},{etc..}}] pour que je puisse exploiter le tableau, entoure le deux simple quote, en anglais Merci ! `
+
+    return [prompt1, prompt2]
   }
 
-  const sendToGPT = (survivors, index) => {
-    if (survivors !== "null" && survivors) {
+  const sendToGPT = async (survivors, index) => {
+    if (survivors !== null && survivors) {
       const prompt = preparePrompt(survivors[index])
-      const result = getOpenai(prompt)
-      // console.log("resultat : ", result)
-      setDescription(result)
+      console.log("prompt : " + prompt)
+      const resultPrompt1 = await getOpenai(prompt[0]) // Await the result here
+      const resultPrompt2 = await getOpenai(prompt[1])
+      const validJSON = resultPrompt2.replace(/'/g, '"')
+      const skillsArray = JSON.parse(validJSON)
+      setDescription(resultPrompt1)
+      setSkills(skillsArray)
     }
   }
 
@@ -65,7 +72,8 @@ function Meet() {
       {survivors && survivors.length > 0 && (
         <CardSwipe
           survivor={survivors[index]}
-          description={description}
+          description={description} // Pass the description here
+          skills={skills}
           index={index}
           onClickLeft={() => setIndex((prev) => prev - 1)}
           onClickRight={() => setIndex((prev) => prev + 1)}
