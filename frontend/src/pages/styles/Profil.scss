@@ -11,7 +11,8 @@
   border-radius: 8px;
   background-color: rgba(128, 128, 128, 0.169);
 
-  h2{}
+  h2 {
+  }
 
   &__title {
     height: auto;
@@ -36,11 +37,9 @@
   //   justify-content: flex-start;
   //   align-items: flex-end;
   // }
-  .titremecouilles{
-    margin-bottom:2rem;
+  .titremecouilles {
+    margin-bottom: 2rem;
   }
-
-  
 
   &__description {
     height: 70%;
