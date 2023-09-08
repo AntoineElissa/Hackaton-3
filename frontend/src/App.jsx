@@ -1,4 +1,4 @@
-import Home from "./pages/Home"
+import Log from "./pages/Log"
 
 /* STYLES */
 import "./App.scss"
@@ -7,9 +7,10 @@ import "./App.scss"
 import { Routes, Route } from "react-router-dom"
 
 /* COMPONENTS */
+import Home from "./pages/Home"
 import Header from "./components/General/Header"
 import Profil from "./pages/Profil"
-import Radar from "./pages/Radar"
+// import Radar from "./pages/Radar"
 import Alert from "./pages/Alert"
 import Ia from "./pages/Ia"
 import Discuss from "./pages/Discuss"
@@ -18,6 +19,8 @@ import Resources from "./pages/Resources"
 import Zones from "./pages/Zones"
 import Navbar from "./components/General/Navbar"
 import Register from "./pages/Register"
+import RadarTest from "./pages/RadarTest"
+import Conversations from "./pages/Conversations"
 
 function App() {
   return (
@@ -28,9 +31,11 @@ function App() {
 
       <main className="wrap-content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Log />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/profil" element={<Profil />} />
-          <Route path="/radar" element={<Radar />} />
+          {/* <Route path="/radar" element={<Radar />} /> */}
+          <Route path="/radar" element={<RadarTest />} />
           <Route path="/alert" element={<Alert />} />
           <Route path="/ia" element={<Ia />} />
           <Route path="/discuss" element={<Discuss />} />
@@ -38,6 +43,7 @@ function App() {
           <Route path="/resources" element={<Resources />} />
           <Route path="/zones" element={<Zones />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/conversations" element={<Conversations />} />
         </Routes>
       </main>
       <div className="wrap-nav">

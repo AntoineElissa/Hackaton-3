@@ -1,0 +1,89 @@
+@import "../../../../variables.scss";
+
+.popupFinder {
+  position: fixed;
+  width: 80vw;
+  min-height: 20vh;
+  background-color: white;
+  border-radius: 10px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  max-height: 90vh;
+  max-width: 1200px;
+  overflow: auto;
+
+  .popupFinderToolbar {
+    height: 50px;
+    background-color: #b85959;
+    color: white;
+    border-radius: 10px 10px 0 0px;
+    box-sizing: border-box;
+    // padding: 0 2rem 0 0;
+  }
+
+  .popupFinderContent {
+    height: 90%;
+  }
+}
+
+.popupFinderToolbar {
+  &__menu {
+    display: flex;
+    height: 100%;
+    // max-height: 50px;
+    justify-content: space-between;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+
+    li {
+      cursor: pointer;
+    }
+
+    .actif {
+      font-weight: bold;
+    }
+
+    .unselected {
+      font-weight: normal;
+    }
+
+    li:hover {
+      font-weight: bold;
+    }
+  }
+  &__buttonsFinder {
+    height: 100%;
+    // max-height: 50px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+
+    .btnQuit {
+      height: 60%;
+      // max-height: 50px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      margin: 0;
+      padding: 0;
+
+      .imgQuit {
+        height: 100%;
+      }
+    }
+
+    .btnQuit:hover {
+      height: 55%;
+    }
+  }
+}

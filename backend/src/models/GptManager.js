@@ -9,13 +9,20 @@ class GptManager extends AbstractManager {
   // console.log(data)
   // console.log(leMessage)
 
-  insert(req, data) {
-    const { id, message } = req.body
-    const userId = parseInt(id, 10)
-    return this.database.query(
-      `INSERT INTO ${this.table} (user_id, message_emis, message_recu) VALUES (?,?,?)`
-    )[(userId, message, data)]
-  }
+  // insert(req, data) {
+  // const { id, message } = req.body
+  // const us erId = parseInt(id, 10)
+// console.log(id)
+// console.log(message)
+// console.log(data)
+// console.log(leMessage)
+// return this.database.query(
+//   `INSERT INTO ${this.table} (user_id, message_emis, message_recu) VALUES (1,"TEST","TEST2")`
+// )
+//   [
+//     (userId, message, data)
+//   ]
+// }
 
   update(cours) {
     return this.database.query(

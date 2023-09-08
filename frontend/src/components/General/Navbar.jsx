@@ -14,7 +14,7 @@ function Navbar() {
       <nav className="navTemporaire">
         <ul>
           <li>
-            <NavLink to="/" exact activeClassName="active">
+            <NavLink to="/home" exact activeClassName="active">
               <img src={homelogo} alt="homelogo" />
               Home
             </NavLink>

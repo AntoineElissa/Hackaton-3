@@ -11,23 +11,36 @@
   border-radius: 8px;
   background-color: rgba(128, 128, 128, 0.169);
 
+  h2{}
+
   &__title {
     height: auto;
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     // background-color: white;
 
-    button{
+    button {
       background: transparent;
-      border:none;
-      height:50%;
+      border: none;
+      height: 50%;
 
-      img{
-        height:100%;
+      img {
+        height: 100%;
       }
     }
   }
+
+  // .titremescouillasses{
+  //   display:flex;
+  //   justify-content: flex-start;
+  //   align-items: flex-end;
+  // }
+  .titremecouilles{
+    margin-bottom:2rem;
+  }
+
+  
 
   &__description {
     height: 70%;
