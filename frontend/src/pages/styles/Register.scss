@@ -37,6 +37,16 @@
 
     .register-submit {
       cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-family: "jaldi";
+      border-radius: 2px;
+      background-color: #fff;
+      margin-top: 20px;
+      border: none;
+      padding: 0 1rem 0 1rem;
     }
   }
 }

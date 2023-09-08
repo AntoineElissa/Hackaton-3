@@ -37,7 +37,7 @@ function Register() {
       .then((response) => {
         // Handle success or do something with the response
         if (response.data !== undefined && response.data !== null) {
-          navigate("/login")
+          navigate("/")
         } else {
           // Gérer le cas où l'inscription n'a pas réussi
         }

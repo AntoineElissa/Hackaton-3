@@ -103,10 +103,12 @@
   display: flex;
   width: 100%;
   justify-content: center;
+  
 }
 
 .signIn {
   width: 100px;
+  cursor: pointer;
 }
 
 .loginGlobal input {
