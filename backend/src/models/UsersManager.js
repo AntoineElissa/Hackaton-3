@@ -4,7 +4,13 @@ class UsersManager extends AbstractManager {
   constructor() {
     super({ table: "users" })
   }
-  // Coucou
+
+  login(users) {
+    return this.database.query(
+      `select * from ${this.table} where user_name = ? and user_pwd = ?`,
+      [users.userName, users.password]
+    )
+  }
 
   insert(users) {
     return this.database.query(

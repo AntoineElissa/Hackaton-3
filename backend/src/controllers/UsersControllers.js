@@ -1,8 +1,9 @@
 const models = require("../models")
 
 const browse = (req, res) => {
+  const users = req.body
   models.users
-    .findAll()
+    .login(users)
     .then(([rows]) => {
       res.send(rows)
     })
