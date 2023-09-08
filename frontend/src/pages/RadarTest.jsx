@@ -4,7 +4,6 @@ import "leaflet/dist/leaflet.css"
 import "./styles/RadarTest.scss"
 import { useEffect, useState, useRef } from "react"
 import mapLogo from "../assets/images/radarImg/mapLogo.png"
-import searchLogo from "../assets/images/radarImg/searchLogo.png"
 // import api from "../services/api"
 import campingImg from "../assets/images/radarImg/camping.png"
 import electricityImg from "../assets/images/radarImg/electricity.png"
@@ -16,8 +15,16 @@ import shopImg from "../assets/images/radarImg/shop.png"
 import waterImg from "../assets/images/radarImg/water.png"
 import woodImg from "../assets/images/radarImg/wood.png"
 import zombieImg from "../assets/images/radarImg/zombie.png"
+import globeImg from "../assets/images/radarImg/globe.png"
+// import mars3d from "../assets/images/radarImg/globeGif.gif"
 
 export default function Map() {
+  // ------------ Switch from Globe image to Map ----------
+  const [showMap, setShowMap] = useState(false)
+  const handleToggleMap = () => {
+    setShowMap(true)
+  }
+
   // ------ To get the user's position -----------
   const [userLocation, setUserLocation] = useState(null)
   const mapRef = useRef(null)
@@ -164,59 +171,70 @@ export default function Map() {
   return (
     <div className="mapPage">
       <section className="radarTitle">
-        <h3 className="mapTitle">Radar Zone</h3>
+        <h2 className="mapTitle">Radar Zone</h2>
         <img className="mapLogoImg" src={mapLogo} alt="logo map" />
       </section>
-      <section className="radarSearch">
+      {/* <section className="radarSearch">
         <img className="searchLogoImg" src={searchLogo} alt="search logo" />
         <div className="searchEntry">search something here</div>
         <button type="button" className="searchButton">
           Search
         </button>
-      </section>
+      </section> */}
       <div className="mapMain">
-        <MapContainer
-          center={
-            userLocation
-              ? [userLocation.latitude, userLocation.longitude]
-              : [50, 10]
-          }
-          zoom={7}
-          scrollWheelZoom={true}
-          className="map-container"
-          ref={mapRef}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            className="tileLayer"
-          />
-          <Marker
-            position={
+        {!showMap ? (
+          <button
+            type="button"
+            onClick={handleToggleMap}
+            className="showMapButton"
+          >
+            <img className="globeImg" src={globeImg} alt="globe" />
+          </button>
+        ) : null}
+        {showMap && (
+          <MapContainer
+            center={
               userLocation
                 ? [userLocation.latitude, userLocation.longitude]
                 : [50, 10]
             }
+            zoom={7}
+            scrollWheelZoom={true}
+            className="map-container"
             ref={mapRef}
-          ></Marker>
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              className="tileLayer"
+            />
+            <Marker
+              position={
+                userLocation
+                  ? [userLocation.latitude, userLocation.longitude]
+                  : [50, 10]
+              }
+              ref={mapRef}
+            ></Marker>
 
-          <div className="mapFilter">
-            {filteredIcons.map((poi) => (
-              <Marker
-                position={[poi.coordx, poi.coordy]}
-                icon={L.icon({
-                  iconUrl: poi.imgUrl,
-                  iconSize: [28, 28],
-                  iconAnchor: [14, 28],
-                })}
-                key={poi.id}
-              ></Marker>
-            ))}
-          </div>
-        </MapContainer>
+            <div className="mapFilter">
+              {filteredIcons.map((poi) => (
+                <Marker
+                  position={[poi.coordx, poi.coordy]}
+                  icon={L.icon({
+                    iconUrl: poi.imgUrl,
+                    iconSize: [28, 28],
+                    iconAnchor: [14, 28],
+                  })}
+                  key={poi.id}
+                ></Marker>
+              ))}
+            </div>
+          </MapContainer>
+        )}
       </div>
       <div className="categoryList">
-        <h3 className="filterTitle">Filters</h3>
+        <h2 className="filterTitle">Filters</h2>
         <section className="filteredPoi">
           {iconTab.map((poi) => (
             <label key={poi.id}>
