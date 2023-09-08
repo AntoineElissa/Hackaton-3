@@ -25,7 +25,7 @@ const widgetData = [
     widgetColor: "#43A2CA",
     widgetName: "Chat",
     widgetImg: discussion,
-    linkedPage: "/discuss",
+    linkedPage: "/conversations",
   },
   {
     id: 4,

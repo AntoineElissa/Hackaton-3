@@ -19,6 +19,7 @@ import Resources from "./pages/Resources"
 import Zones from "./pages/Zones"
 import Navbar from "./components/General/Navbar"
 import RadarTest from "./pages/RadarTest"
+import Conversations from "./pages/Conversations"
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/meet" element={<Meet />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/zones" element={<Zones />} />
+          <Route path="/conversations" element={<Conversations />} />
         </Routes>
       </main>
       <div className="wrap-nav">

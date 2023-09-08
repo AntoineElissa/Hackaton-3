@@ -48,7 +48,7 @@ function Ia() {
     } catch (error) {
       console.error(error)
     } finally {
-      setValue(null)
+      setValue("")
     }
   }
 
