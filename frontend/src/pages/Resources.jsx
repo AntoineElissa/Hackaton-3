@@ -8,12 +8,12 @@ import food from "../assets/images/food.png"
 const resourcesData = [
   {
     id: 1,
-    resourcesTitle: "How to make fire ?",
+    resourcesTitle: "How to make a fire ?",
     resourcesImg: campfire,
   },
   {
     id: 2,
-    resourcesTitle: "How to survive a zombie ?",
+    resourcesTitle: "How to survive a zombie attack ?",
     resourcesImg: zombie,
   },
   {

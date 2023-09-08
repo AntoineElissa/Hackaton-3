@@ -1,70 +1,76 @@
-import "./styles/Discuss.scss"
-import io from "socket.io-client"
-// import { useParams } from "react-router-dom"
-import { useEffect, useState, useRef } from "react"
+import React, { useEffect, useState, useRef, useContext } from "react"
 import { getCurrentTime } from "../services/utils.js"
-
+import { useParams } from "react-router-dom"
 import Prompt from "../components/General/prompts/Prompt"
 import imgNayan from "../assets/images/profilNayan.png"
 import arrow from "../assets/images/send.png"
+import GeneralContext from "../services/GeneralContext"
+import io from "socket.io-client"
+import "./styles/Discuss.scss"
+
 const socket = io.connect("http://localhost:3001")
 
 function Discuss() {
   const [message, setMessage] = useState("")
   const [time, setTime] = useState(null)
-
-  const [messageHistory, setMessageHistory] = useState([]) // Store the message history
+  const [messageHistory, setMessageHistory] = useState([])
   const messageHistoryRef = useRef(null)
+  const [currentUser, setCurrentUser] = useState(null) // Update this state to store the current user
 
-  const [local, setLocal] = useState("")
+  const { conversationId } = useParams()
+  const { convers } = useContext(GeneralContext)
 
   useEffect(() => {
-    const storedConversationString = localStorage.getItem("conversation")
-    if (storedConversationString) {
-      const storedConversation = JSON.parse(storedConversationString)
-      setMessageHistory([
-        ...messageHistory,
-        { text: storedConversation.convers, type: "receive" },
-      ])
-      setLocal(storedConversation)
-      // Utilisez storedConversation comme objet JavaScript dans votre composant
+    // Mettez à jour currentUser lorsque convers change
+    const userParams = convers.find((item) => item.id === conversationId)
+    // console.log("convers:", convers)
+    // console.log("user params:", userParams)
+
+    if (userParams) {
+      setCurrentUser(userParams) // Update currentUser with the userParams
+      if (userParams.convers !== "") {
+        setMessageHistory([
+          ...messageHistory,
+          {
+            text: userParams.convers,
+            type: "send",
+            pic: userParams.pic,
+          },
+        ])
+      }
     }
-  }, [])
 
-  useEffect(() => {
     if (messageHistoryRef.current) {
       messageHistoryRef.current.scrollTop =
         messageHistoryRef.current.scrollHeight
     }
-    if (messageHistory) {
-      // console.log("valeur: ", messageHistory[0].text)
 
-      setTime(getCurrentTime)
-    }
-  }, [messageHistory])
+    setTime(getCurrentTime)
+  }, [convers, conversationId])
 
   const sendMessage = () => {
     socket.emit("send_message", { message })
-    // Add the sent message to the message history
-    setMessageHistory([...messageHistory, { text: message, type: "send" }])
-    setMessage("") // Clear the input field after sending
+    setMessageHistory([
+      ...messageHistory,
+      { text: message, type: "receive", pic: imgNayan },
+    ])
+    setMessage("")
   }
 
   return (
     <div className="discuss">
       <div className="resume-contact">
-        <img src={local.pic} alt="img-contak" />
-        <h4>{local.name}</h4>
+        <img src={currentUser ? currentUser.pic : ""} alt="img-contak" />
+        <h4>{currentUser ? `${currentUser.name}` : ""}</h4>
       </div>
-      {/* <div className="message-history" ref={messageHistoryRef}> */}
       <div className="message-history" ref={messageHistoryRef}>
         {messageHistory.map((message, index) => (
           <div key={index} className="wrapmessage">
             <Prompt
-              type="receive"
+              type={message.type}
               data={message.text}
               time={time}
-              pic={imgNayan}
+              pic={message.pic}
             />
           </div>
         ))}
@@ -82,15 +88,7 @@ function Discuss() {
           onClick={sendMessage}
           className="niquetaraceben2"
         />
-        {/* <button onClick={sendMessage} className="">Send Message</button> */}
       </section>
-      {/* ))} */}
-
-      {/* {messageReceived && (
-          <div className="received">
-            <strong>Received:</strong> {messageReceived}
-          </div>
-        )} */}
     </div>
   )
 }
