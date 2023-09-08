@@ -9,8 +9,8 @@
   box-sizing: border-box;
   padding: 1rem;
   // overflow: hidden;
-  background-color: #43A2CA;
-  border-radius:10px;
+  background-color: #43a2ca;
+  border-radius: 10px;
 
   &__title {
     height: $height-title-sections;
@@ -18,20 +18,20 @@
   }
 }
 
-.resume-contact{
-  height:10%;
-  display:flex;
-  gap:1.5rem;
+.resume-contact {
+  height: 10%;
+  display: flex;
+  gap: 1.5rem;
 
-  img{
-    height:100%;
+  img {
+    height: 100%;
     border-radius: 50%;
   }
 }
 
 .message-history {
   overflow: scroll;
-  height:100%;
+  height: 100%;
 }
 
 .discuss-title {
