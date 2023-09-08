@@ -4,8 +4,7 @@ import "./ResourcesCard.scss"
 
 function ResourcesCard(props) {
   const { resourcesTitle, resourcesImg } = props
-  const [message, setMessage] = useState(null)
-  console.error(message)
+  // const [message, setMessage] = useState(null)
   const [visible, setVisible] = useState(false)
   const [displayedWords, setDisplayedWords] = useState([])
   const [wordIndex, setWordIndex] = useState(0)
@@ -16,12 +15,12 @@ function ResourcesCard(props) {
     if (!visible) {
       getOpenai(prompt).then((response) => {
         const words = response.split(" ")
-        setMessage(response)
+        // setMessage(response)
         setDisplayedWords(words)
         setVisible(true)
       })
     } else {
-      setMessage(null)
+      // setMessage(null)
       setVisible(false)
       setDisplayedWords([])
       setWordIndex(0)

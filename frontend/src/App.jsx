@@ -1,4 +1,4 @@
-import Home from "./pages/Home"
+import Log from "./pages/Log"
 
 /* STYLES */
 import "./App.scss"
@@ -7,6 +7,7 @@ import "./App.scss"
 import { Routes, Route } from "react-router-dom"
 
 /* COMPONENTS */
+import Home from "./pages/Home"
 import Header from "./components/General/Header"
 import Profil from "./pages/Profil"
 // import Radar from "./pages/Radar"
@@ -28,7 +29,8 @@ function App() {
 
       <main className="wrap-content">
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Log />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/profil" element={<Profil />} />
           {/* <Route path="/radar" element={<Radar />} /> */}
           <Route path="/radar" element={<RadarTest />} />
