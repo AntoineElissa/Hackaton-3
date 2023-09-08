@@ -5,7 +5,7 @@ import survivalzone from "../assets/images/survivalzone.png"
 import discussion from "../assets/images/chat.png"
 import meet from "../assets/images/meet.png"
 import Blob from "../components/Blob/Blob"
-import Marquee from "../components/Marquee/Marquee"
+// import Marquee from "../components/Marquee/Marquee"
 
 const widgetData = [
   {
@@ -41,9 +41,6 @@ const widgetData = [
 function Home() {
   return (
     <div className="home">
-      <div className="home__news">
-        <Marquee />
-      </div>
       <div className="home__globals">
         <Blob />
       </div>
