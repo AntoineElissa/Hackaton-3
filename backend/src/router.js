@@ -29,7 +29,7 @@ router.delete("/skills/:id", skillsControllers.destroy)
 
 router.get("/users", usersControllers.browse)
 router.get("/users/:id", usersControllers.read)
-router.post("/users", usersControllers.add)
+router.post("/register", usersControllers.add)
 router.put("/users/:id", usersControllers.edit)
 router.delete("/users/:id", usersControllers.destroy)
 
