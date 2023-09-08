@@ -16,7 +16,7 @@ export const getOpenai = async (prompt) => {
 
     // Ajoutez le prompt ici si nécessaire
     // addPrompt("receive", data.choices[0].message.content)
-    console.log(data)
+    // console.log(data)
     return data.choices[0].message.content
   } catch (error) {
     console.error(error)

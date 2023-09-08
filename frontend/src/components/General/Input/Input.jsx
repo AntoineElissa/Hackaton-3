@@ -1,5 +1,3 @@
-// import { useState } from "react"
-
 import "./Input.scss"
 import imgSend from "../../../assets/images/send.png"
 
