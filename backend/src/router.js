@@ -7,6 +7,7 @@ const handicapControllers = require("./controllers/HandicapControllers")
 const skillsControllers = require("./controllers/SkillsControllers")
 const coursControllers = require("./controllers/CoursControllers")
 const poiControllers = require("./controllers/PoiControllers")
+
 // const gptControllers = require("./controllers/gptControllers")
 // const picturesControllers = require("./controllers/picturesControllers")
 

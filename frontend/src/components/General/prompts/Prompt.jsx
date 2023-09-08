@@ -5,7 +5,7 @@ function Prompt({ type = "send", data, pic, time }) {
   return (
     <>
       <StyledImg type={type}>
-        {pic && <img src={pic} alt="img-profil" />}
+        {pic && <img src={pic} alt="img-profil" className="picstyledimg" />}
       </StyledImg>
       <PromptStyled type={type}>
         <PromptBulle type={type} data={data} className="prompt__bulle">
