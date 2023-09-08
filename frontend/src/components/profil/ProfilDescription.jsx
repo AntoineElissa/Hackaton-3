@@ -12,9 +12,9 @@ function ProfilDescription({ dataUser }) {
           <img src={imgUser} alt="img-profil" />
         </div>
         <div className="profil__nom">
-          <div>
-            <h2> Jean BAVE</h2>
-            <span> Informations </span>
+          <div className="titremescouillasses">
+            <h2 className="titremecouilles"> Jean BAVE</h2>
+            {/* <span> Informations </span> */}
           </div>
         </div>
         <div className="profil__infos">
